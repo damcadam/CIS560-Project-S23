@@ -8,9 +8,17 @@ namespace CIS_560_Project_Team_16
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+
+            // Create the different forms
+            AccountLogin accountLogin = new();
+            MainWindow mainWindow = new();
+            UserSelection userSelection = new();
+
+            // Give GUIs objects to the others so they can show and hide each other
+            accountLogin.SetUserWindow(userSelection);
+
+            // Run the application
             Application.Run(new AccountLogin());
         }
     }

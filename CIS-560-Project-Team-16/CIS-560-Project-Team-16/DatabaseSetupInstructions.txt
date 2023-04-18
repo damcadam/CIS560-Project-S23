@@ -1,1 +1,12 @@
-﻿
+﻿How to setup the database stuff in visual studio
+1. Open the server explorer in VS
+2. Click on the Connect to Database button
+3. Add your server name. Mine is "(localdb)\MSSQLLocalDb" if
+	you connect to your SQL Server in Microsoft SQL Server Management Studio,
+	it's that server name.
+4. Look down near the bottom of the form. You can either select an
+	existing database or type the name of a new database. I called mine
+	"CIS560Project". Once you create it you can select it in the future.
+5. Now you should be able to run SQL scripts in Visual Studio. After changes
+	are made to the database you can right click on the database connection in the
+	Server Explorer and click refresh to show changes.
