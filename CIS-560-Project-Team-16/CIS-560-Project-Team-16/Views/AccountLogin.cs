@@ -18,7 +18,7 @@ namespace CIS_560_Project_Team_16
         /// <summary>
         /// Object for the UserSelection GUI
         /// </summary>
-        private UserSelection _userWindow = new();
+        private MainWindow _userWindow = new();
 
         public AccountLogin()
         {
@@ -30,7 +30,7 @@ namespace CIS_560_Project_Team_16
         /// the reference to show UserSelection once a valid account is logged in
         /// </summary>
         /// <param name="userWindow">UserSelection object created in Program.cs</param>
-        public void SetUserWindow(UserSelection userWindow)
+        public void SetUserWindow(MainWindow userWindow)
         {
             _userWindow = userWindow;
         }

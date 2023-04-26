@@ -7,8 +7,5 @@
     <Compile Update="Views\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\UserSelection.cs">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
 </Project>
