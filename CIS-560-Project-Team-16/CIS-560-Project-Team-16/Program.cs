@@ -13,10 +13,6 @@ namespace CIS_560_Project_Team_16
             // Create the different forms
             AccountLogin accountLogin = new();
             MainWindow mainWindow = new();
-            UserSelection userSelection = new();
-
-            // Give GUIs objects to the others so they can show and hide each other
-            accountLogin.SetUserWindow(userSelection);
 
             // Run the application
             Application.Run(new AccountLogin());

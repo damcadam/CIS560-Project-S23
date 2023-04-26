@@ -18,3 +18,22 @@ C:\Users\darja\Desktop\CIS 560\Project\CIS560-Project-S23\CIS-560-Project-Team-1
 C:\Users\darja\Desktop\CIS 560\Project\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\obj\Debug\net6.0-windows\CIS_560_Project_Team_16.MainWindow.resources
 C:\Users\darja\Desktop\CIS 560\Project\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\obj\Debug\net6.0-windows\CIS_560_Project_Team_16.UserSelection.resources
 C:\Users\darja\Desktop\CIS 560\Project\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\obj\Debug\net6.0-windows\CIS_560_Project_Team_16.Properties.Resources.resources
+C:\Users\Waterman\source\repos\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\obj\Debug\net6.0-windows\CIS-560-Project-Team-16.csproj.AssemblyReference.cache
+C:\Users\Waterman\source\repos\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\obj\Debug\net6.0-windows\CIS_560_Project_Team_16.Properties.Resources.resources
+C:\Users\Waterman\source\repos\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\obj\Debug\net6.0-windows\CIS_560_Project_Team_16.AccountLogin.resources
+C:\Users\Waterman\source\repos\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\obj\Debug\net6.0-windows\CIS_560_Project_Team_16.MainWindow.resources
+C:\Users\Waterman\source\repos\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\obj\Debug\net6.0-windows\CIS-560-Project-Team-16.csproj.GenerateResource.cache
+C:\Users\Waterman\source\repos\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\obj\Debug\net6.0-windows\CIS-560-Project-Team-16.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Waterman\source\repos\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\obj\Debug\net6.0-windows\CIS-560-Project-Team-16.AssemblyInfoInputs.cache
+C:\Users\Waterman\source\repos\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\obj\Debug\net6.0-windows\CIS-560-Project-Team-16.AssemblyInfo.cs
+C:\Users\Waterman\source\repos\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\obj\Debug\net6.0-windows\CIS-560-Project-Team-16.csproj.CoreCompileInputs.cache
+C:\Users\Waterman\source\repos\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\obj\Debug\net6.0-windows\CIS-560-Project-Team-16.dll
+C:\Users\Waterman\source\repos\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\obj\Debug\net6.0-windows\refint\CIS-560-Project-Team-16.dll
+C:\Users\Waterman\source\repos\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\obj\Debug\net6.0-windows\CIS-560-Project-Team-16.pdb
+C:\Users\Waterman\source\repos\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\bin\Debug\net6.0-windows\CIS-560-Project-Team-16.exe
+C:\Users\Waterman\source\repos\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\bin\Debug\net6.0-windows\CIS-560-Project-Team-16.deps.json
+C:\Users\Waterman\source\repos\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\bin\Debug\net6.0-windows\CIS-560-Project-Team-16.runtimeconfig.json
+C:\Users\Waterman\source\repos\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\bin\Debug\net6.0-windows\CIS-560-Project-Team-16.dll
+C:\Users\Waterman\source\repos\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\bin\Debug\net6.0-windows\CIS-560-Project-Team-16.pdb
+C:\Users\Waterman\source\repos\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\obj\Debug\net6.0-windows\CIS-560-Project-Team-16.genruntimeconfig.cache
+C:\Users\Waterman\source\repos\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\obj\Debug\net6.0-windows\ref\CIS-560-Project-Team-16.dll

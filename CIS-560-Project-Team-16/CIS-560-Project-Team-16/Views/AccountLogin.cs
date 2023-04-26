@@ -15,24 +15,9 @@ namespace CIS_560_Project_Team_16
     /// </summary>
     public partial class AccountLogin : Form
     {
-        /// <summary>
-        /// Object for the UserSelection GUI
-        /// </summary>
-        private UserSelection _userWindow = new();
-
         public AccountLogin()
         {
             InitializeComponent();
-        }
-
-        /// <summary>
-        /// Sets an object to point at the UserSelection GUI. We need
-        /// the reference to show UserSelection once a valid account is logged in
-        /// </summary>
-        /// <param name="userWindow">UserSelection object created in Program.cs</param>
-        public void SetUserWindow(UserSelection userWindow)
-        {
-            _userWindow = userWindow;
         }
 
         /// <summary>
@@ -44,40 +29,33 @@ namespace CIS_560_Project_Team_16
         /// <param name="e"></param>
         private void uxSignIn_Click(object sender, EventArgs e)
         {
-            if(CheckDBForAccount(false))
+            string username = uxALUsernameTextBox.Text;
+            //Checks for an account with the provided username
+            if (CheckDBForAccount(username))
             {
-                // Show UserSelection and hide AccountLogin
-                PopulateUserSelection();
+
+                //Show MainWindow with information loaded based on account
+                ShowMainWindow();
             }
-            // Username/password combo is not in database
+            // Usernameis not in database
             else
             {
-                uxToolStripLabel.Text = "Username or password is not correct";
+                uxALToolStripLabel.Text = "Username or password is not correct.";
             }
         }
 
         /// <summary>
         /// Check if the textboxes containsa valid username and password
         /// </summary>
-        /// <param name="justCheckUserName">True if we are just checking if a username exists
+        /// <param name="username">True if we are just checking if a username exists
         /// false if we are checking for both the username and password</param>
         /// <returns>true for valid accounts, false otherwise</returns>
-        private bool CheckDBForAccount(bool justCheckUserName)
+        private bool CheckDBForAccount(string username)
         {
             // Search database for this account
             // Return true if it's in there
             // False if it's not
-            return true;
-        }
-
-        /// <summary>
-        /// Populate the UserSelection with info from this account
-        /// Then Show UserSelection
-        /// </summary>
-        private void PopulateUserSelection()
-        {
-            this.Hide();
-            _userWindow.Show();
+            return false;
         }
 
         /// <summary>
@@ -88,17 +66,22 @@ namespace CIS_560_Project_Team_16
         /// <param name="e"></param>
         private void uxCreateAccount_Click(object sender, EventArgs e)
         {
+            string username = uxALUsernameTextBox.Text;
             // Already in there
-            if(CheckDBForAccount(true))
+            if (CheckDBForAccount(username))
             {
-                uxToolStripLabel.Text = "There's already an account with that username";
+                uxALToolStripLabel.Text = "There's already an account with that username";
             }
             // Brand new account
             else
             {
                 CreateAccount();
-                PopulateUserSelection();
             }
+        }
+
+        private void ShowMainWindow()
+        {
+
         }
 
         /// <summary>
