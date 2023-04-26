@@ -15,11 +15,11 @@ namespace CIS_560_Project_Team_16.Views
 {
     public partial class AccountCreation : Form
     {
-        private AccountLogin accountLoginScreen;
+        private AccountLogin _accountLoginScreen;
         public AccountCreation(AccountLogin loginScreen)
         {
             InitializeComponent();
-            accountLoginScreen = loginScreen;
+            _accountLoginScreen = loginScreen;
         }
 
         private void AccountCreation_Load(object sender, EventArgs e)
@@ -29,7 +29,7 @@ namespace CIS_560_Project_Team_16.Views
 
         private void uxToLogInButton_Click(object sender, EventArgs e)
         {
-            accountLoginScreen.Show();
+            _accountLoginScreen.Show();
             this.Hide();
         }
 

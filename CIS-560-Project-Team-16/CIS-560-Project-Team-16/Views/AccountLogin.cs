@@ -17,38 +17,62 @@ namespace CIS_560_Project_Team_16
     /// </summary>
     public partial class AccountLogin : Form
     {
-        private AccountCreation accountCreationScreen;
+        //Stores the information needed to establish DB connection
+        SqlConnection connection = new SqlConnection(@"Data Source=(localDB)\MSSQLLocalDB;Initial Catalog=CIS560Project;Integrated Security=True");
+
+        //Adds reference to the account creation screen, if necessary
+        private AccountCreation _accountCreationScreen;
 
         public AccountLogin()
         {
             InitializeComponent();
-            accountCreationScreen = new AccountCreation(this);
+            _accountCreationScreen = new AccountCreation(this);
         }
 
-        SqlConnection connection = new SqlConnection(@"Data Source=(localDB)\MSSQLLocalDB;Initial Catalog=CIS560Project;Integrated Security=True");
+        /// <summary>
+        /// Updates the Toolstrip message at the bottom of the login window with the message parameter
+        /// </summary>
+        /// <param name="message">The message to update the Toolstrip text to</param>
+        private void UpdateToolStripMessage(string message)
+        {
+            uxALToolStripLabel.Text = message;
+        }
 
         /// <summary>
-        /// Check if there is a user for that username and password in the database.
-        /// If so populate the UserSelection with the correct info for from the account
-        /// and show the UserSelection
+        /// Clears the message in the Toolstrip at the bottom of the login window
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void uxSignIn_Click(object sender, EventArgs e)
+        private void ClearToolStripMessage()
         {
-            string username = uxALUsernameTextBox.Text, password = uxALPasswordTextBox.Text;
+            uxALToolStripLabel.Text = "";
+        }
 
-            //Checks for an account with the provided username
-            if (CheckDBForUsername(username))
+
+        /// <summary>
+        /// Checks both username and password and returns accordingly
+        /// </summary>
+        /// <param name="username">The username pulled from the username textbox</param>
+        /// <param name="user_password">The password pulled from password textbox</param>
+        /// <returns>True if login credentials were valid, false otherwise</returns>
+        private bool ValidateCredentials(string username, string user_password)
+        {
+            ClearToolStripMessage();
+
+            //Query to pulls the specified username and password combo, if possible
+            string loginQuery = "SELECT * FROM LoginCredentials WHERE username = '" + username + "' AND password = '" + user_password + "'";
+
+            SqlDataAdapter sdaLogin = new SqlDataAdapter(loginQuery, connection);
+
+            DataTable dtLogin = new DataTable();
+            sdaLogin.Fill(dtLogin);
+
+            if (dtLogin.Rows.Count > 0)
             {
-
-                //Show MainWindow with information loaded based on account
-                ShowMainWindow();
+                //uxALToolStripLabel.Text = "Credentials Validated";
+                return true;
             }
-            // Username is not in database
             else
             {
-                uxALToolStripLabel.Text = "Username or password is not correct.";
+                return false;
             }
         }
 
@@ -59,8 +83,7 @@ namespace CIS_560_Project_Team_16
         /// <returns>True when a username exists in the DB, false otherwise</returns>
         private bool CheckDBForUsername(string username)
         {
-            //Clears notification
-            uxALToolStripLabel.Text = "";
+            ClearToolStripMessage();
 
             //Query to check only for the given username
             string usernameCheckQuery = "SELECT * FROM LoginCredentials WHERE username = '" + username + "'";
@@ -96,28 +119,49 @@ namespace CIS_560_Project_Team_16
         }
 
         /// <summary>
-        /// Create a new account for the user if this username and password
-        /// does not exist in the database
+        /// Check if there is a user for that username and password in the database.
+        /// If so populate the UserSelection with the correct info for from the account
+        /// and show the UserSelection
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uxSignIn_Click(object sender, EventArgs e)
+        {
+            string username = uxALUsernameTextBox.Text, password = uxALPasswordTextBox.Text;
+
+            //Checks for an account with the provided username and compares passwords
+            if (ValidateCredentials(username, password))
+            {
+                //Clears textboxes
+                uxALUsernameTextBox.Text = "";
+                uxALPasswordTextBox.Text = "";
+
+                ShowMainWindow();
+            }
+            // Username is not in database
+            else
+            {
+                uxALToolStripLabel.Text = "Username or password is not correct.";
+            }
+        }
+
+        /// <summary>
+        /// Opens the Account Creation window and hides the Login window
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void uxCreateAccount_Click(object sender, EventArgs e)
         {
-            accountCreationScreen.Show();
+            _accountCreationScreen.Show();
             this.Hide();
         }
 
+        /// <summary>
+        /// Shows the main window while also hiding all others, if needed
+        /// </summary>
         private void ShowMainWindow()
         {
-
-        }
-
-        /// <summary>
-        /// Create a new account with this username and password
-        /// </summary>
-        private void CreateAccount()
-        {
-
+            
         }
 
         private void AccountLogin_FormClosed(object sender, FormClosedEventArgs e)
