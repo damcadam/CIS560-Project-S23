@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using CIS_560_Project_Team_16.Views;
 
 namespace CIS_560_Project_Team_16
 {
@@ -15,10 +17,15 @@ namespace CIS_560_Project_Team_16
     /// </summary>
     public partial class AccountLogin : Form
     {
+        private AccountCreation accountCreationScreen;
+
         public AccountLogin()
         {
             InitializeComponent();
+            accountCreationScreen = new AccountCreation(this);
         }
+
+        SqlConnection connection = new SqlConnection(@"Data Source=(localDB)\MSSQLLocalDB;Initial Catalog=CIS560Project;Integrated Security=True");
 
         /// <summary>
         /// Check if there is a user for that username and password in the database.
@@ -29,15 +36,16 @@ namespace CIS_560_Project_Team_16
         /// <param name="e"></param>
         private void uxSignIn_Click(object sender, EventArgs e)
         {
-            string username = uxALUsernameTextBox.Text;
+            string username = uxALUsernameTextBox.Text, password = uxALPasswordTextBox.Text;
+
             //Checks for an account with the provided username
-            if (CheckDBForAccount(username))
+            if (CheckDBForUsername(username))
             {
 
                 //Show MainWindow with information loaded based on account
                 ShowMainWindow();
             }
-            // Usernameis not in database
+            // Username is not in database
             else
             {
                 uxALToolStripLabel.Text = "Username or password is not correct.";
@@ -45,17 +53,46 @@ namespace CIS_560_Project_Team_16
         }
 
         /// <summary>
-        /// Check if the textboxes containsa valid username and password
+        /// Check if the username textbox contains an existing username in the DB
         /// </summary>
-        /// <param name="username">True if we are just checking if a username exists
-        /// false if we are checking for both the username and password</param>
-        /// <returns>true for valid accounts, false otherwise</returns>
-        private bool CheckDBForAccount(string username)
+        /// <param name="username">The username we are checking the DB for</param>
+        /// <returns>True when a username exists in the DB, false otherwise</returns>
+        private bool CheckDBForUsername(string username)
         {
-            // Search database for this account
-            // Return true if it's in there
-            // False if it's not
-            return false;
+            //Clears notification
+            uxALToolStripLabel.Text = "";
+
+            //Query to check only for the given username
+            string usernameCheckQuery = "SELECT * FROM LoginCredentials WHERE username = '" + username + "'";
+
+            try
+            {
+                //Executes query
+                SqlDataAdapter sdaUsername = new SqlDataAdapter(usernameCheckQuery, connection);
+
+                //Creates and stores the username in a datatable, if it exists. Otherwise, creates
+                //empty datatable
+                DataTable usernamePull = new DataTable();
+                sdaUsername.Fill(usernamePull);
+
+                //Checks if username was stored in datatable and returns accordingly
+                if (usernamePull.Rows.Count > 0)
+                {
+                    //uxALToolStripLabel.Text = "Username found!";
+                    return true;
+                }
+                else
+                {
+                    //uxALToolStripLabel.Text = "Username NOT found!";
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                //In the event there was an issue pulling information from DB
+                MessageBox.Show("Error establishing connection to database. See details: \n" + ex.ToString());
+                return false;
+            }
         }
 
         /// <summary>
@@ -66,17 +103,8 @@ namespace CIS_560_Project_Team_16
         /// <param name="e"></param>
         private void uxCreateAccount_Click(object sender, EventArgs e)
         {
-            string username = uxALUsernameTextBox.Text;
-            // Already in there
-            if (CheckDBForAccount(username))
-            {
-                uxALToolStripLabel.Text = "There's already an account with that username";
-            }
-            // Brand new account
-            else
-            {
-                CreateAccount();
-            }
+            accountCreationScreen.Show();
+            this.Hide();
         }
 
         private void ShowMainWindow()
@@ -90,6 +118,11 @@ namespace CIS_560_Project_Team_16
         private void CreateAccount()
         {
 
+        }
+
+        private void AccountLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
