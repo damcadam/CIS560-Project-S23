@@ -1,0 +1,5 @@
+﻿CREATE TABLE MovieDatabase.Directors
+(
+	directorID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
+	fullName NVARCHAR(128)  NOT NULL
+);
