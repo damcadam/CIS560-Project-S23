@@ -29,20 +29,21 @@
         private void InitializeComponent()
         {
             uxALSignIn = new Button();
-            uxALCreateAccount = new Button();
+            uxToCreateAccount = new Button();
             uxALUsernameTextBox = new TextBox();
             uxALUsernameLabel = new Label();
-            uxALPassword = new Label();
+            uxALPasswordLabel = new Label();
             uxALPasswordTextBox = new TextBox();
             uxALStatusStrip = new StatusStrip();
             uxALToolStripLabel = new ToolStripStatusLabel();
             label1 = new Label();
+            uxALShowPasswordCheckBox = new CheckBox();
             uxALStatusStrip.SuspendLayout();
             SuspendLayout();
             // 
             // uxALSignIn
             // 
-            uxALSignIn.Location = new Point(229, 193);
+            uxALSignIn.Location = new Point(421, 164);
             uxALSignIn.Margin = new Padding(4, 5, 4, 5);
             uxALSignIn.Name = "uxALSignIn";
             uxALSignIn.Size = new Size(143, 42);
@@ -51,16 +52,16 @@
             uxALSignIn.UseVisualStyleBackColor = true;
             uxALSignIn.Click += uxSignIn_Click;
             // 
-            // uxALCreateAccount
+            // uxToCreateAccount
             // 
-            uxALCreateAccount.Location = new Point(423, 292);
-            uxALCreateAccount.Margin = new Padding(4, 5, 4, 5);
-            uxALCreateAccount.Name = "uxALCreateAccount";
-            uxALCreateAccount.Size = new Size(171, 42);
-            uxALCreateAccount.TabIndex = 1;
-            uxALCreateAccount.Text = "Create Account";
-            uxALCreateAccount.UseVisualStyleBackColor = true;
-            uxALCreateAccount.Click += uxCreateAccount_Click;
+            uxToCreateAccount.Location = new Point(423, 292);
+            uxToCreateAccount.Margin = new Padding(4, 5, 4, 5);
+            uxToCreateAccount.Name = "uxToCreateAccount";
+            uxToCreateAccount.Size = new Size(171, 42);
+            uxToCreateAccount.TabIndex = 1;
+            uxToCreateAccount.Text = "Create Account";
+            uxToCreateAccount.UseVisualStyleBackColor = true;
+            uxToCreateAccount.Click += uxToCreateAccount_Click;
             // 
             // uxALUsernameTextBox
             // 
@@ -81,16 +82,16 @@
             uxALUsernameLabel.TabIndex = 3;
             uxALUsernameLabel.Text = "Username:";
             // 
-            // uxALPassword
+            // uxALPasswordLabel
             // 
-            uxALPassword.AutoSize = true;
-            uxALPassword.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            uxALPassword.Location = new Point(17, 103);
-            uxALPassword.Margin = new Padding(4, 0, 4, 0);
-            uxALPassword.Name = "uxALPassword";
-            uxALPassword.Size = new Size(142, 40);
-            uxALPassword.TabIndex = 4;
-            uxALPassword.Text = "Password:";
+            uxALPasswordLabel.AutoSize = true;
+            uxALPasswordLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            uxALPasswordLabel.Location = new Point(17, 103);
+            uxALPasswordLabel.Margin = new Padding(4, 0, 4, 0);
+            uxALPasswordLabel.Name = "uxALPasswordLabel";
+            uxALPasswordLabel.Size = new Size(142, 40);
+            uxALPasswordLabel.TabIndex = 4;
+            uxALPasswordLabel.Text = "Password:";
             // 
             // uxALPasswordTextBox
             // 
@@ -128,18 +129,30 @@
             label1.TabIndex = 7;
             label1.Text = "Don't have an account?";
             // 
+            // uxALShowPasswordCheckBox
+            // 
+            uxALShowPasswordCheckBox.AutoSize = true;
+            uxALShowPasswordCheckBox.Location = new Point(17, 164);
+            uxALShowPasswordCheckBox.Name = "uxALShowPasswordCheckBox";
+            uxALShowPasswordCheckBox.Size = new Size(162, 29);
+            uxALShowPasswordCheckBox.TabIndex = 8;
+            uxALShowPasswordCheckBox.Text = "Show Password";
+            uxALShowPasswordCheckBox.UseVisualStyleBackColor = true;
+            uxALShowPasswordCheckBox.CheckedChanged += uxShowPasswordCheckBox_CheckedChanged;
+            // 
             // AccountLogin
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(611, 385);
+            Controls.Add(uxALShowPasswordCheckBox);
             Controls.Add(label1);
             Controls.Add(uxALStatusStrip);
             Controls.Add(uxALPasswordTextBox);
-            Controls.Add(uxALPassword);
+            Controls.Add(uxALPasswordLabel);
             Controls.Add(uxALUsernameLabel);
             Controls.Add(uxALUsernameTextBox);
-            Controls.Add(uxALCreateAccount);
+            Controls.Add(uxToCreateAccount);
             Controls.Add(uxALSignIn);
             Margin = new Padding(4, 5, 4, 5);
             MinimizeBox = false;
@@ -155,13 +168,14 @@
         #endregion
 
         private Button uxALSignIn;
-        private Button uxALCreateAccount;
+        private Button uxToCreateAccount;
         private TextBox uxALUsernameTextBox;
         private Label uxALUsernameLabel;
-        private Label uxALPassword;
+        private Label uxALPasswordLabel;
         private TextBox uxALPasswordTextBox;
         private StatusStrip uxALStatusStrip;
         private ToolStripStatusLabel uxALToolStripLabel;
         private Label label1;
+        private CheckBox uxALShowPasswordCheckBox;
     }
 }

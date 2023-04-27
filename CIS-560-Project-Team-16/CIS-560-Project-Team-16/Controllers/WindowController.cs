@@ -42,6 +42,11 @@ namespace CIS_560_Project_Team_16.Controllers
         ShowACWindowDEL showACWindow;
 
         /// <summary>
+        /// Delegate to show the AL window
+        /// </summary>
+        ShowALWindowDEL showALWindow;
+
+        /// <summary>
         /// Information pertaining to a user that is logged in, if there is one
         /// </summary>
         UserModel user;
@@ -68,14 +73,18 @@ namespace CIS_560_Project_Team_16.Controllers
             //Query to pulls the specified username and password combo, if possible
             string loginQuery = "SELECT * FROM LoginCredentials WHERE username = '" + username + "' AND password = '" + user_password + "'";
 
+            //Adapts the information retrieved into a format that can be stored in a few different ways
+            //here in C#
             SqlDataAdapter sdaLogin = new SqlDataAdapter(loginQuery, connection);
 
+            //Creates a datatable to store the information temporarily
             DataTable dtLogin = new DataTable();
             sdaLogin.Fill(dtLogin);
 
             if (dtLogin.Rows.Count > 0)
             {
-                //uxALToolStripLabel.Text = "Credentials Validated";
+                //-----Temporary message to show the credentials matched-----
+                updateALToolStripMessage("Credentials validated!");
                 return true;
             }
             else
@@ -113,7 +122,7 @@ namespace CIS_560_Project_Team_16.Controllers
                 //Checks if username was stored in datatable and returns accordingly
                 if (usernamePull.Rows.Count > 0)
                 {
-                    updateACToolStripMessage("Username already exists!");
+                    updateACToolStripMessage("Username already exists! Try logging in instead.");
                     return true;
                 }
                 else
@@ -138,15 +147,21 @@ namespace CIS_560_Project_Team_16.Controllers
         /// <returns>True if passwords match, false otherwise</returns>
         public bool ComparePasswords_AC(string proposedPassword, string confirmationPassword)
         {
-            if(proposedPassword == confirmationPassword)
+            if (proposedPassword == "" || confirmationPassword == "")
             {
-                updateACToolStripMessage("Passwords match!");
-                return true;
+                updateACToolStripMessage("Password cannot be blank. Try again.");
+                return false;
             }
-            else
+            else if(proposedPassword != confirmationPassword)
             {
                 updateACToolStripMessage("Passwords do not match. Try again.");
                 return false;
+            }
+            else
+            {
+                //Temporary message, will store account info to DB then transfer to Login Page
+                updateACToolStripMessage("Passwords match! Account created!");
+                return true;
             }
         }
 
@@ -186,9 +201,22 @@ namespace CIS_560_Project_Team_16.Controllers
             updateACToolStripMessage = del;
         }
 
+        /// <summary>
+        /// Registers the delegate towards the AccountCreation window to show the window itself
+        /// </summary>
+        /// <param name="del">Method that shows the AccountCreation window</param>
         public void RegisterShowACWindowDel(ShowACWindowDEL del)
         {
             showACWindow = del;
+        }
+
+        /// <summary>
+        /// Registers the delegate towards the AccountLogin window to show the window itself
+        /// </summary>
+        /// <param name="del">Method that shows the AccountLogin window</param>
+        public void RegisterShowALWindowDel(ShowALWindowDEL del)
+        {
+            showALWindow = del;
         }
 
         /// <summary>
@@ -197,6 +225,14 @@ namespace CIS_560_Project_Team_16.Controllers
         public void ShowACWindowController()
         {
             showACWindow();
+        }
+
+        /// <summary>
+        /// A reference method for AC window to show AL window
+        /// </summary>
+        public void ShowALWindowController()
+        {
+            showALWindow();
         }
     }
 }

@@ -39,15 +39,15 @@
             uxACToLogInPromptLabel = new Label();
             uxACStatusStrip = new StatusStrip();
             uxACToolStripLabel = new ToolStripStatusLabel();
+            uxACShowPasswordsCheckBox = new CheckBox();
             uxACStatusStrip.SuspendLayout();
             SuspendLayout();
             // 
             // uxToLogInButton
             // 
-            uxToLogInButton.Location = new Point(487, 305);
-            uxToLogInButton.Margin = new Padding(4, 5, 4, 5);
+            uxToLogInButton.Location = new Point(341, 183);
             uxToLogInButton.Name = "uxToLogInButton";
-            uxToLogInButton.Size = new Size(107, 38);
+            uxToLogInButton.Size = new Size(75, 23);
             uxToLogInButton.TabIndex = 0;
             uxToLogInButton.Text = "Log In";
             uxToLogInButton.UseVisualStyleBackColor = true;
@@ -55,10 +55,9 @@
             // 
             // uxSignUpButton
             // 
-            uxSignUpButton.Location = new Point(234, 223);
-            uxSignUpButton.Margin = new Padding(4, 5, 4, 5);
+            uxSignUpButton.Location = new Point(315, 124);
             uxSignUpButton.Name = "uxSignUpButton";
-            uxSignUpButton.Size = new Size(143, 42);
+            uxSignUpButton.Size = new Size(100, 25);
             uxSignUpButton.TabIndex = 1;
             uxSignUpButton.Text = "Create Account";
             uxSignUpButton.UseVisualStyleBackColor = true;
@@ -68,10 +67,9 @@
             // 
             uxACUsernameLabel.AutoSize = true;
             uxACUsernameLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            uxACUsernameLabel.Location = new Point(116, 30);
-            uxACUsernameLabel.Margin = new Padding(4, 0, 4, 0);
+            uxACUsernameLabel.Location = new Point(81, 18);
             uxACUsernameLabel.Name = "uxACUsernameLabel";
-            uxACUsernameLabel.Size = new Size(151, 40);
+            uxACUsernameLabel.Size = new Size(101, 25);
             uxACUsernameLabel.TabIndex = 2;
             uxACUsernameLabel.Text = "Username:";
             // 
@@ -79,10 +77,9 @@
             // 
             uxACPasswordLabel.AutoSize = true;
             uxACPasswordLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            uxACPasswordLabel.Location = new Point(124, 87);
-            uxACPasswordLabel.Margin = new Padding(4, 0, 4, 0);
+            uxACPasswordLabel.Location = new Point(87, 52);
             uxACPasswordLabel.Name = "uxACPasswordLabel";
-            uxACPasswordLabel.Size = new Size(142, 40);
+            uxACPasswordLabel.Size = new Size(95, 25);
             uxACPasswordLabel.TabIndex = 3;
             uxACPasswordLabel.Text = "Password:";
             // 
@@ -90,45 +87,40 @@
             // 
             uxACPasswordConfirmLabel.AutoSize = true;
             uxACPasswordConfirmLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            uxACPasswordConfirmLabel.Location = new Point(20, 145);
-            uxACPasswordConfirmLabel.Margin = new Padding(4, 0, 4, 0);
+            uxACPasswordConfirmLabel.Location = new Point(14, 87);
             uxACPasswordConfirmLabel.Name = "uxACPasswordConfirmLabel";
-            uxACPasswordConfirmLabel.Size = new Size(252, 40);
+            uxACPasswordConfirmLabel.Size = new Size(168, 25);
             uxACPasswordConfirmLabel.TabIndex = 4;
             uxACPasswordConfirmLabel.Text = "Confirm Password:";
             // 
             // uxACUsernameTextBox
             // 
-            uxACUsernameTextBox.Location = new Point(269, 38);
-            uxACUsernameTextBox.Margin = new Padding(4, 5, 4, 5);
+            uxACUsernameTextBox.Location = new Point(188, 23);
             uxACUsernameTextBox.Name = "uxACUsernameTextBox";
-            uxACUsernameTextBox.Size = new Size(324, 31);
+            uxACUsernameTextBox.Size = new Size(228, 23);
             uxACUsernameTextBox.TabIndex = 5;
             // 
             // uxACPasswordTextBox
             // 
-            uxACPasswordTextBox.Location = new Point(269, 95);
-            uxACPasswordTextBox.Margin = new Padding(4, 5, 4, 5);
+            uxACPasswordTextBox.Location = new Point(188, 57);
             uxACPasswordTextBox.Name = "uxACPasswordTextBox";
-            uxACPasswordTextBox.Size = new Size(324, 31);
+            uxACPasswordTextBox.Size = new Size(228, 23);
             uxACPasswordTextBox.TabIndex = 6;
             // 
             // uxACPasswordConfirmTextBox
             // 
-            uxACPasswordConfirmTextBox.Location = new Point(269, 153);
-            uxACPasswordConfirmTextBox.Margin = new Padding(4, 5, 4, 5);
+            uxACPasswordConfirmTextBox.Location = new Point(188, 92);
             uxACPasswordConfirmTextBox.Name = "uxACPasswordConfirmTextBox";
-            uxACPasswordConfirmTextBox.Size = new Size(324, 31);
+            uxACPasswordConfirmTextBox.Size = new Size(228, 23);
             uxACPasswordConfirmTextBox.TabIndex = 7;
             // 
             // uxACToLogInPromptLabel
             // 
             uxACToLogInPromptLabel.AutoSize = true;
             uxACToLogInPromptLabel.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            uxACToLogInPromptLabel.Location = new Point(224, 305);
-            uxACToLogInPromptLabel.Margin = new Padding(4, 0, 4, 0);
+            uxACToLogInPromptLabel.Location = new Point(157, 183);
             uxACToLogInPromptLabel.Name = "uxACToLogInPromptLabel";
-            uxACToLogInPromptLabel.Size = new Size(259, 30);
+            uxACToLogInPromptLabel.Size = new Size(178, 20);
             uxACToLogInPromptLabel.TabIndex = 8;
             uxACToLogInPromptLabel.Text = "Already have an account?";
             // 
@@ -136,23 +128,35 @@
             // 
             uxACStatusStrip.ImageScalingSize = new Size(24, 24);
             uxACStatusStrip.Items.AddRange(new ToolStripItem[] { uxACToolStripLabel });
-            uxACStatusStrip.Location = new Point(0, 357);
+            uxACStatusStrip.Location = new Point(0, 209);
             uxACStatusStrip.Name = "uxACStatusStrip";
-            uxACStatusStrip.Padding = new Padding(1, 0, 20, 0);
-            uxACStatusStrip.Size = new Size(611, 28);
+            uxACStatusStrip.Size = new Size(428, 22);
             uxACStatusStrip.TabIndex = 9;
             uxACStatusStrip.Text = "statusStrip1";
             // 
             // uxACToolStripLabel
             // 
             uxACToolStripLabel.Name = "uxACToolStripLabel";
-            uxACToolStripLabel.Size = new Size(0, 21);
+            uxACToolStripLabel.Size = new Size(0, 17);
+            // 
+            // uxACShowPasswordsCheckBox
+            // 
+            uxACShowPasswordsCheckBox.AutoSize = true;
+            uxACShowPasswordsCheckBox.Location = new Point(15, 127);
+            uxACShowPasswordsCheckBox.Margin = new Padding(2, 2, 2, 2);
+            uxACShowPasswordsCheckBox.Name = "uxACShowPasswordsCheckBox";
+            uxACShowPasswordsCheckBox.Size = new Size(113, 19);
+            uxACShowPasswordsCheckBox.TabIndex = 10;
+            uxACShowPasswordsCheckBox.Text = "Show Passwords";
+            uxACShowPasswordsCheckBox.UseVisualStyleBackColor = true;
+            uxACShowPasswordsCheckBox.CheckedChanged += uxACShowPasswordsCheckBox_CheckedChanged;
             // 
             // AccountCreation
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(611, 385);
+            ClientSize = new Size(428, 231);
+            Controls.Add(uxACShowPasswordsCheckBox);
             Controls.Add(uxACStatusStrip);
             Controls.Add(uxACToLogInPromptLabel);
             Controls.Add(uxACPasswordConfirmTextBox);
@@ -163,7 +167,6 @@
             Controls.Add(uxACUsernameLabel);
             Controls.Add(uxSignUpButton);
             Controls.Add(uxToLogInButton);
-            Margin = new Padding(4, 5, 4, 5);
             MinimizeBox = false;
             Name = "AccountCreation";
             Text = "AccountCreation";
@@ -187,5 +190,6 @@
         private Label uxACToLogInPromptLabel;
         private StatusStrip uxACStatusStrip;
         private ToolStripStatusLabel uxACToolStripLabel;
+        private CheckBox uxACShowPasswordsCheckBox;
     }
 }

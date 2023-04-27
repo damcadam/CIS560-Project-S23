@@ -29,14 +29,18 @@ namespace CIS_560_Project_Team_16
             WindowController controller = new WindowController();
 
             // Create the different forms
-            AccountLogin logInWindow = new(controller.ValidateCredentials_AL);
-            AccountCreation accCreateWindow = new(controller.CheckDBForUsername_AC, controller.ComparePasswords_AC);
+            AccountLogin logInWindow = new(controller.ValidateCredentials_AL,
+                controller.ShowACWindowController);
+            AccountCreation accCreateWindow = new(controller.CheckDBForUsername_AC,
+                controller.ComparePasswords_AC,
+                controller.ShowALWindowController);
 
-            controller.RegisterClearALMessageDel(logInWindow.ClearToolStripMessage);
+            controller.RegisterClearALMessageDel(logInWindow.ClearALToolStripMessage);
             controller.RegisterUpdateALMessageDel(logInWindow.UpdateToolStripMessage);
             controller.RegisterClearACMessageDel(accCreateWindow.ClearACToolStripMessage);
             controller.RegisterUpdateACMessageDel(accCreateWindow.UpdateACToolStripMessage);
             controller.RegisterShowACWindowDel(accCreateWindow.ShowACWindow);
+            controller.RegisterShowALWindowDel(logInWindow.ShowALWindow);
 
             // Run the application
             Application.Run(logInWindow);

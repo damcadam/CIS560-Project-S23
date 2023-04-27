@@ -25,9 +25,10 @@ namespace CIS_560_Project_Team_16
         NotifyControllerShowACWindowDEL showACWindow;
 
         public AccountLogin(ValidateALCredentialsDEL validateCredentialsDeligate,
-            ShowACWindowDEL showACWindowDeligate)
+            NotifyControllerShowACWindowDEL showACWindowDeligate)
         {
             InitializeComponent();
+            uxALPasswordTextBox.UseSystemPasswordChar = true;
             validateCredentials = validateCredentialsDeligate;
             showACWindow = showACWindowDeligate;
         }
@@ -44,7 +45,7 @@ namespace CIS_560_Project_Team_16
         /// <summary>
         /// Clears the message in the Toolstrip at the bottom of the login window
         /// </summary>
-        public void ClearToolStripMessage()
+        public void ClearALToolStripMessage()
         {
             uxALToolStripLabel.Text = "";
         }
@@ -81,22 +82,57 @@ namespace CIS_560_Project_Team_16
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void uxCreateAccount_Click(object sender, EventArgs e)
+        private void uxToCreateAccount_Click(object sender, EventArgs e)
         {
             this.Hide();
+            ClearALToolStripMessage();
+            uxALPasswordTextBox.Text = "";
+            uxALUsernameTextBox.Text = "";
+            uxALShowPasswordCheckBox.Checked = false;
+            showACWindow();
         }
 
         /// <summary>
-        /// Shows the main window while also hiding all others, if needed
+        /// Notifies the controller that the main window should be shown
         /// </summary>
         public void ShowMainWindow()
         {
-            HideAccountLoginWindow();
+            //Shows the main window when ready
         }
 
+        /// <summary>
+        /// Shows the AccountLogin window
+        /// </summary>
+        public void ShowALWindow()
+        {
+            this.Show();
+        }
+
+        /// <summary>
+        /// Closes entire application when window is closed to avoid softlock
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AccountLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        /// <summary>
+        /// Shows or hides the password a user has typed in
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uxShowPasswordCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (uxALShowPasswordCheckBox.Checked)
+            {
+                uxALPasswordTextBox.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                uxALPasswordTextBox.UseSystemPasswordChar = true;
+            }
         }
     }
 }

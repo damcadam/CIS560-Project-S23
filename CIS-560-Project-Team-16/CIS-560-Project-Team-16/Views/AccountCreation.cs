@@ -13,8 +13,6 @@ using System.Data.SqlClient;
 
 namespace CIS_560_Project_Team_16.Views
 {
-
-
     public partial class AccountCreation : Form
     {
         /// <summary>
@@ -27,12 +25,21 @@ namespace CIS_560_Project_Team_16.Views
         /// </summary>
         CompareACPasswordsDEL comparePasswords;
 
+        /// <summary>
+        /// Deligate towards controller that notifies it to show the AccountLogin window
+        /// </summary>
+        NotifyControllerShowALWindowDEL showALWindow;
+
         public AccountCreation(CheckACDBForUsernameDEL usernameCheckDeligate,
-            CompareACPasswordsDEL comparePasswordsDeligate)
+            CompareACPasswordsDEL comparePasswordsDeligate,
+            NotifyControllerShowALWindowDEL showALWindowDeligate)
         {
             InitializeComponent();
+            uxACPasswordTextBox.UseSystemPasswordChar = true;
+            uxACPasswordConfirmTextBox.UseSystemPasswordChar = true;
             checkDBForUsername = usernameCheckDeligate;
             comparePasswords = comparePasswordsDeligate;
+            showALWindow = showALWindowDeligate;
         }
 
         /// <summary>
@@ -43,6 +50,11 @@ namespace CIS_560_Project_Team_16.Views
         private void uxToLogInButton_Click(object sender, EventArgs e)
         {
             this.Hide();
+            ClearPasswords();
+            ClearACToolStripMessage();
+            uxACUsernameTextBox.Text = "";
+            uxACShowPasswordsCheckBox.Checked = false;
+            showALWindow();
         }
 
         /// <summary>
@@ -66,16 +78,22 @@ namespace CIS_560_Project_Team_16.Views
             string password1 = uxACPasswordTextBox.Text;
             string password2 = uxACPasswordConfirmTextBox.Text;
 
-            if (checkDBForUsername(username))
+            if(username == "")
             {
-                if(comparePasswords(password1, password2))
+                UpdateACToolStripMessage("Username cannot be empty! Try again.");
+            }
+            else if (checkDBForUsername(username))
+            {
+                //Do nothing, controller handles this message
+            }
+            else
+            {
+                if (comparePasswords(password1, password2))
                 {
-                    //Store new credentials in DB
+                    //Store new credentials in DB, for now, updates message showing successful comparison
+                    uxACUsernameTextBox.Text = "";
                 }
-                else
-                {
-                    ClearPasswords();
-                }
+                ClearPasswords();
             }
         }
 
@@ -111,6 +129,20 @@ namespace CIS_560_Project_Team_16.Views
         public void ShowACWindow()
         {
             this.Show();
+        }
+
+        private void uxACShowPasswordsCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if(uxACShowPasswordsCheckBox.Checked)
+            {
+                uxACPasswordTextBox.UseSystemPasswordChar = false;
+                uxACPasswordConfirmTextBox.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                uxACPasswordTextBox.UseSystemPasswordChar = true;
+                uxACPasswordConfirmTextBox.UseSystemPasswordChar = true;
+            }
         }
     }
 }
