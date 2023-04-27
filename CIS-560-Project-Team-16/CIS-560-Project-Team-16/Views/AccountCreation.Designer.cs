@@ -36,8 +36,10 @@
             uxACUsernameTextBox = new TextBox();
             uxACPasswordTextBox = new TextBox();
             uxACPasswordConfirmTextBox = new TextBox();
-            uxACAccountPromptLabel = new Label();
+            uxACToLogInPromptLabel = new Label();
             uxACStatusStrip = new StatusStrip();
+            uxACToolStripLabel = new ToolStripStatusLabel();
+            uxACStatusStrip.SuspendLayout();
             SuspendLayout();
             // 
             // uxToLogInButton
@@ -60,6 +62,7 @@
             uxSignUpButton.TabIndex = 1;
             uxSignUpButton.Text = "Create Account";
             uxSignUpButton.UseVisualStyleBackColor = true;
+            uxSignUpButton.Click += uxSignUpButton_Click;
             // 
             // uxACUsernameLabel
             // 
@@ -118,26 +121,32 @@
             uxACPasswordConfirmTextBox.Size = new Size(324, 31);
             uxACPasswordConfirmTextBox.TabIndex = 7;
             // 
-            // uxACAccountPromptLabel
+            // uxACToLogInPromptLabel
             // 
-            uxACAccountPromptLabel.AutoSize = true;
-            uxACAccountPromptLabel.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            uxACAccountPromptLabel.Location = new Point(224, 305);
-            uxACAccountPromptLabel.Margin = new Padding(4, 0, 4, 0);
-            uxACAccountPromptLabel.Name = "uxACAccountPromptLabel";
-            uxACAccountPromptLabel.Size = new Size(259, 30);
-            uxACAccountPromptLabel.TabIndex = 8;
-            uxACAccountPromptLabel.Text = "Already have an account?";
+            uxACToLogInPromptLabel.AutoSize = true;
+            uxACToLogInPromptLabel.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            uxACToLogInPromptLabel.Location = new Point(224, 305);
+            uxACToLogInPromptLabel.Margin = new Padding(4, 0, 4, 0);
+            uxACToLogInPromptLabel.Name = "uxACToLogInPromptLabel";
+            uxACToLogInPromptLabel.Size = new Size(259, 30);
+            uxACToLogInPromptLabel.TabIndex = 8;
+            uxACToLogInPromptLabel.Text = "Already have an account?";
             // 
             // uxACStatusStrip
             // 
             uxACStatusStrip.ImageScalingSize = new Size(24, 24);
-            uxACStatusStrip.Location = new Point(0, 363);
+            uxACStatusStrip.Items.AddRange(new ToolStripItem[] { uxACToolStripLabel });
+            uxACStatusStrip.Location = new Point(0, 357);
             uxACStatusStrip.Name = "uxACStatusStrip";
             uxACStatusStrip.Padding = new Padding(1, 0, 20, 0);
-            uxACStatusStrip.Size = new Size(611, 22);
+            uxACStatusStrip.Size = new Size(611, 28);
             uxACStatusStrip.TabIndex = 9;
             uxACStatusStrip.Text = "statusStrip1";
+            // 
+            // uxACToolStripLabel
+            // 
+            uxACToolStripLabel.Name = "uxACToolStripLabel";
+            uxACToolStripLabel.Size = new Size(0, 21);
             // 
             // AccountCreation
             // 
@@ -145,7 +154,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(611, 385);
             Controls.Add(uxACStatusStrip);
-            Controls.Add(uxACAccountPromptLabel);
+            Controls.Add(uxACToLogInPromptLabel);
             Controls.Add(uxACPasswordConfirmTextBox);
             Controls.Add(uxACPasswordTextBox);
             Controls.Add(uxACUsernameTextBox);
@@ -159,7 +168,8 @@
             Name = "AccountCreation";
             Text = "AccountCreation";
             FormClosed += AccountCreation_FormClosed;
-            Load += AccountCreation_Load;
+            uxACStatusStrip.ResumeLayout(false);
+            uxACStatusStrip.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -174,7 +184,8 @@
         private TextBox uxACUsernameTextBox;
         private TextBox uxACPasswordTextBox;
         private TextBox uxACPasswordConfirmTextBox;
-        private Label uxACAccountPromptLabel;
+        private Label uxACToLogInPromptLabel;
         private StatusStrip uxACStatusStrip;
+        private ToolStripStatusLabel uxACToolStripLabel;
     }
 }
