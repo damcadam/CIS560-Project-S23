@@ -10,3 +10,12 @@
 5. Now you should be able to run SQL scripts in Visual Studio. After changes
 	are made to the database you can right click on the database connection in the
 	Server Explorer and click refresh to show changes.
+
+
+
+
+FORMAT FILES MUST END WITH A NEWLINE, OR SADNESS WILL ENSUE
+FUCKING ALSO CLOSE THE FILE YOU ARE READING FROM ON TABLE INSERTS
+
+Run below in the terminal to insert data from .tsv using a format file:
+bcp CIS560Project.MovieDatabase.Directors in "C:\Users\Isaiah\Documents\BCP Insert\MovieOutput.tsv" -S "(localdb)\MSSQLLocalDb" -T -f GenFormat.fmt -h "CHECK_CONSTRAINTS";

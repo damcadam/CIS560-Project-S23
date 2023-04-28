@@ -1,0 +1,5 @@
+14.0 
+2
+1       SQLCHAR       		0       0       "\t"       	0     	Col1         		""
+2       SQLCHAR				0       256		"\r\n"		2		fullName			SQL_Latin1_General_CP1_CI_AS
+
