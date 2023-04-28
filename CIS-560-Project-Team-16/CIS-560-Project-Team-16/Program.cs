@@ -29,18 +29,9 @@ namespace CIS_560_Project_Team_16
             accountLogin.SetUserWindow(userSelection);
 
             // Rebuild the database before the application starts
-            RebuildDatabase();
-
-            // Close the connection
-
-
-            // 1. Create the schema
-
-            // 2. Drop the tables
-
-            // 3. Create the tables
-
-            // 4. Bulk copy in the data
+            // RebuildDatabase(); UNCOMMENT ME after table creation is good
+            // Recopy data from TSVs into the tables
+            BulkCopyData();
 
             // Run the application
             Application.Run(new AccountLogin());
