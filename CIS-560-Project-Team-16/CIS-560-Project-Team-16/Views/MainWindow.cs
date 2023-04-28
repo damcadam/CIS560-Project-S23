@@ -18,6 +18,11 @@ namespace CIS_560_Project_Team_16
             InitializeComponent();
         }
 
+        public void ShowMainWindow()
+        {
+            this.Show();
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
 
@@ -28,5 +33,10 @@ namespace CIS_560_Project_Team_16
 
         }
 
+        //-----------Likely want to do something here, not sure what though----------------
+        private void MainWindow_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

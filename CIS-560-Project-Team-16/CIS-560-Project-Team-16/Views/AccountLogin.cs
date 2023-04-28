@@ -22,15 +22,31 @@ namespace CIS_560_Project_Team_16
         /// </summary>
         ValidateALCredentialsDEL validateCredentials;
 
+        /// <summary>
+        /// Deligate towards the controller that has it tell the Account Creation window to Show
+        /// </summary>
         NotifyControllerShowACWindowDEL showACWindow;
 
+        /// <summary>
+        /// Deligate towards the controller that tells it to show the MainWindow
+        /// </summary>
+        NotifyControllerShowMainWindowDEL showMainWindow;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="validateCredentialsDeligate"></param>
+        /// <param name="showACWindowDeligate"></param>
+        /// <param name="showMainWindowDeligate"></param>
         public AccountLogin(ValidateALCredentialsDEL validateCredentialsDeligate,
-            NotifyControllerShowACWindowDEL showACWindowDeligate)
+            NotifyControllerShowACWindowDEL showACWindowDeligate,
+            NotifyControllerShowMainWindowDEL showMainWindowDeligate)
         {
             InitializeComponent();
             uxALPasswordTextBox.UseSystemPasswordChar = true;
             validateCredentials = validateCredentialsDeligate;
             showACWindow = showACWindowDeligate;
+            showMainWindow = showMainWindowDeligate;
         }
 
         /// <summary>
@@ -68,7 +84,9 @@ namespace CIS_560_Project_Team_16
                 uxALUsernameTextBox.Text = "";
                 uxALPasswordTextBox.Text = "";
 
-                ShowMainWindow();
+                //Hides this window and shows MainWindow
+                this.Hide();
+                showMainWindow();
             }
             // Username is not in database
             else
@@ -90,14 +108,6 @@ namespace CIS_560_Project_Team_16
             uxALUsernameTextBox.Text = "";
             uxALShowPasswordCheckBox.Checked = false;
             showACWindow();
-        }
-
-        /// <summary>
-        /// Notifies the controller that the main window should be shown
-        /// </summary>
-        public void ShowMainWindow()
-        {
-            //Shows the main window when ready
         }
 
         /// <summary>

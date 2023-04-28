@@ -43,7 +43,7 @@
             // 
             // uxALSignIn
             // 
-            uxALSignIn.Location = new Point(421, 164);
+            uxALSignIn.Location = new Point(421, 163);
             uxALSignIn.Margin = new Padding(4, 5, 4, 5);
             uxALSignIn.Name = "uxALSignIn";
             uxALSignIn.Size = new Size(143, 42);
@@ -75,7 +75,7 @@
             // 
             uxALUsernameLabel.AutoSize = true;
             uxALUsernameLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            uxALUsernameLabel.Location = new Point(8, 23);
+            uxALUsernameLabel.Location = new Point(9, 23);
             uxALUsernameLabel.Margin = new Padding(4, 0, 4, 0);
             uxALUsernameLabel.Name = "uxALUsernameLabel";
             uxALUsernameLabel.Size = new Size(151, 40);
@@ -132,7 +132,7 @@
             // uxALShowPasswordCheckBox
             // 
             uxALShowPasswordCheckBox.AutoSize = true;
-            uxALShowPasswordCheckBox.Location = new Point(17, 164);
+            uxALShowPasswordCheckBox.Location = new Point(17, 163);
             uxALShowPasswordCheckBox.Name = "uxALShowPasswordCheckBox";
             uxALShowPasswordCheckBox.Size = new Size(162, 29);
             uxALShowPasswordCheckBox.TabIndex = 8;
@@ -154,10 +154,11 @@
             Controls.Add(uxALUsernameTextBox);
             Controls.Add(uxToCreateAccount);
             Controls.Add(uxALSignIn);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(4, 5, 4, 5);
             MinimizeBox = false;
             Name = "AccountLogin";
-            Text = "AccountLogin";
+            Text = "Account Login";
             FormClosed += AccountLogin_FormClosed;
             uxALStatusStrip.ResumeLayout(false);
             uxALStatusStrip.PerformLayout();

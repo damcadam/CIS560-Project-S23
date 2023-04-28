@@ -78,17 +78,18 @@ namespace CIS_560_Project_Team_16.Views
             string password1 = uxACPasswordTextBox.Text;
             string password2 = uxACPasswordConfirmTextBox.Text;
 
-            if(username == "")
+            if (username == "")
             {
+                ClearPasswords();
                 UpdateACToolStripMessage("Username cannot be empty! Try again.");
+
             }
-            else if (checkDBForUsername(username))
+            //Structured such that the creation process may only continue if there is not a username
+            //that already exists. Controller will notify user otherwise.
+            else if (!checkDBForUsername(username))
             {
                 //Do nothing, controller handles this message
-            }
-            else
-            {
-                if (comparePasswords(password1, password2))
+                if (comparePasswords(username, password1, password2))
                 {
                     //Store new credentials in DB, for now, updates message showing successful comparison
                     uxACUsernameTextBox.Text = "";
@@ -131,9 +132,15 @@ namespace CIS_560_Project_Team_16.Views
             this.Show();
         }
 
+        /// <summary>
+        /// Event handler for the "Show Passwords" checkbox that shows or hided text based
+        /// on the Checkbox's Checked property.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxACShowPasswordsCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            if(uxACShowPasswordsCheckBox.Checked)
+            if (uxACShowPasswordsCheckBox.Checked)
             {
                 uxACPasswordTextBox.UseSystemPasswordChar = false;
                 uxACPasswordConfirmTextBox.UseSystemPasswordChar = false;

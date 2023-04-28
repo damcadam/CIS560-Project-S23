@@ -47,16 +47,21 @@ namespace CIS_560_Project_Team_16.Controllers
         ShowALWindowDEL showALWindow;
 
         /// <summary>
+        /// Delegate to show the Main Window
+        /// </summary>
+        ShowMainWindowDEL showMainWindow;
+
+        /// <summary>
         /// Information pertaining to a user that is logged in, if there is one
         /// </summary>
         UserModel user;
 
         //Stores the information needed to establish DB connection
-        SqlConnection connection = new SqlConnection(@"Data Source=(localDB)\MSSQLLocalDB;Initial Catalog=CIS560Project;Integrated Security=True");
+        SqlConnection loginDBconnection = new SqlConnection(@"Data Source=(localDB)\MSSQLLocalDB;Initial Catalog=CIS560Project;Integrated Security=True");
 
         public WindowController()
         {
-            user = new("", new DataTable(), "");
+            user = new("", new List<MovieModel>(), new List<MovieModel>());
         }
 
         /// <summary>
@@ -75,7 +80,7 @@ namespace CIS_560_Project_Team_16.Controllers
 
             //Adapts the information retrieved into a format that can be stored in a few different ways
             //here in C#
-            SqlDataAdapter sdaLogin = new SqlDataAdapter(loginQuery, connection);
+            SqlDataAdapter sdaLogin = new SqlDataAdapter(loginQuery, loginDBconnection);
 
             //Creates a datatable to store the information temporarily
             DataTable dtLogin = new DataTable();
@@ -112,7 +117,7 @@ namespace CIS_560_Project_Team_16.Controllers
             try
             {
                 //Executes query
-                SqlDataAdapter sdaUsername = new SqlDataAdapter(usernameCheckQuery, connection);
+                SqlDataAdapter sdaUsername = new SqlDataAdapter(usernameCheckQuery, loginDBconnection);
 
                 //Creates and stores the username in a datatable, if it exists. Otherwise, creates
                 //empty datatable
@@ -145,8 +150,9 @@ namespace CIS_560_Project_Team_16.Controllers
         /// <param name="proposedPassword">The first textbox's contents</param>
         /// <param name="confirmationPassword">The second textbox's contents</param>
         /// <returns>True if passwords match, false otherwise</returns>
-        public bool ComparePasswords_AC(string proposedPassword, string confirmationPassword)
+        public bool ComparePasswords_AC(string username, string proposedPassword, string confirmationPassword)
         {
+            
             if (proposedPassword == "" || confirmationPassword == "")
             {
                 updateACToolStripMessage("Password cannot be blank. Try again.");
@@ -161,8 +167,24 @@ namespace CIS_560_Project_Team_16.Controllers
             {
                 //Temporary message, will store account info to DB then transfer to Login Page
                 updateACToolStripMessage("Passwords match! Account created!");
+                StoreNewCredentials(username, proposedPassword);
                 return true;
             }
+        }
+
+        /// <summary>
+        /// Takes the given username and password and stores them in the DB
+        /// </summary>
+        /// <param name="username">The new username</param>
+        /// <param name="password">The new password</param>
+        private void StoreNewCredentials(string username, string password)
+        {
+            string query = "INSERT INTO LoginCredentials VALUES ('" + username+"','"+password+"')";
+
+            loginDBconnection.Open();
+            SqlCommand cmd = new SqlCommand(query, loginDBconnection);
+            cmd.ExecuteNonQuery();
+            loginDBconnection.Close();
         }
 
         /// <summary>
@@ -220,6 +242,15 @@ namespace CIS_560_Project_Team_16.Controllers
         }
 
         /// <summary>
+        /// Registers the delegate towards the MainWindow to show the window itself
+        /// </summary>
+        /// <param name="del">Method that shows the MainWindow</param>
+        public void RegisterShowMainWindowDel(ShowMainWindowDEL del)
+        {
+            showMainWindow = del;
+        }
+
+        /// <summary>
         /// A reference method for AL window to show AC window
         /// </summary>
         public void ShowACWindowController()
@@ -233,6 +264,14 @@ namespace CIS_560_Project_Team_16.Controllers
         public void ShowALWindowController()
         {
             showALWindow();
+        }
+
+        /// <summary>
+        /// A reference method for the AL window to show the MainWindow upon succesful login
+        /// </summary>
+        public void ShowMainWindowController()
+        {
+            showMainWindow();
         }
     }
 }

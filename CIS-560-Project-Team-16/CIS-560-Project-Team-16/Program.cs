@@ -9,11 +9,13 @@ namespace CIS_560_Project_Team_16
     public delegate void UpdateACToolStripMessageDEL(string message);
     public delegate bool ValidateALCredentialsDEL(string username, string user_password);
     public delegate bool CheckACDBForUsernameDEL(string username);
-    public delegate bool CompareACPasswordsDEL(string password1, string password2);
+    public delegate bool CompareACPasswordsDEL(string username, string password1, string password2);
     public delegate void ShowACWindowDEL();
     public delegate void NotifyControllerShowACWindowDEL();
     public delegate void ShowALWindowDEL();
     public delegate void NotifyControllerShowALWindowDEL();
+    public delegate void ShowMainWindowDEL();
+    public delegate void NotifyControllerShowMainWindowDEL();
 
     public static class Program
     {
@@ -30,17 +32,21 @@ namespace CIS_560_Project_Team_16
 
             // Create the different forms
             AccountLogin logInWindow = new(controller.ValidateCredentials_AL,
-                controller.ShowACWindowController);
+                controller.ShowACWindowController,
+                controller.ShowMainWindowController);
             AccountCreation accCreateWindow = new(controller.CheckDBForUsername_AC,
                 controller.ComparePasswords_AC,
                 controller.ShowALWindowController);
+            MainWindow mainWindow = new();
 
+            //Register all communicative methods between views and controller
             controller.RegisterClearALMessageDel(logInWindow.ClearALToolStripMessage);
             controller.RegisterUpdateALMessageDel(logInWindow.UpdateToolStripMessage);
             controller.RegisterClearACMessageDel(accCreateWindow.ClearACToolStripMessage);
             controller.RegisterUpdateACMessageDel(accCreateWindow.UpdateACToolStripMessage);
             controller.RegisterShowACWindowDel(accCreateWindow.ShowACWindow);
             controller.RegisterShowALWindowDel(logInWindow.ShowALWindow);
+            controller.RegisterShowMainWindowDel(mainWindow.ShowMainWindow);
 
             // Run the application
             Application.Run(logInWindow);
