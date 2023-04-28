@@ -45,3 +45,15 @@ C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560
 C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560-Project-Team-16\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560-Project-Team-16\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560-Project-Team-16\obj\Debug\net6.0-windows\CIS-560-Project-Team-16.csproj.CopyComplete
+C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560-Project-Team-16\bin\Debug\net6.0-windows\Sql\Schemas\Schema.sql
+C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560-Project-Team-16\bin\Debug\net6.0-windows\Sql\Tables\Account.sql
+C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560-Project-Team-16\bin\Debug\net6.0-windows\Sql\Tables\Actor.sql
+C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560-Project-Team-16\bin\Debug\net6.0-windows\Sql\Tables\Directors.sql
+C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560-Project-Team-16\bin\Debug\net6.0-windows\Sql\Tables\Genre.sql
+C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560-Project-Team-16\bin\Debug\net6.0-windows\Sql\Tables\Language.sql
+C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560-Project-Team-16\bin\Debug\net6.0-windows\Sql\Tables\MovieCast.sql
+C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560-Project-Team-16\bin\Debug\net6.0-windows\Sql\Tables\Movies.sql
+C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560-Project-Team-16\bin\Debug\net6.0-windows\Sql\Tables\Reviews.sql
+C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560-Project-Team-16\bin\Debug\net6.0-windows\Sql\Tables\WatchList.sql
+C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560-Project-Team-16\bin\Debug\net6.0-windows\Sql\Tables\_DropTables.sql
+C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560-Project-Team-16\bin\Debug\net6.0-windows\Sql\Tables\GenreValues.sql
