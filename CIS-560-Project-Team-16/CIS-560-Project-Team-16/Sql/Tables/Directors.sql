@@ -1,10 +1,16 @@
-﻿--DROP TABLE MovieDatabase.Directors;
+﻿--(localdb)\MSSQLLocalDb
+--DROP TABLE MovieDatabase.Directors;
 
-CREATE TABLE MovieDatabase.Directors
-(
-	directorId int IDENTITY(1,1) PRIMARY KEY,
-	fullName NVARCHAR(128)  NOT NULL
-);
+IF OBJECT_ID(N'MovieDatabase.Directors') IS NULL
+BEGIN
+	CREATE TABLE MovieDatabase.Directors
+	(
+		directorId int IDENTITY(1,1) PRIMARY KEY,
+		fullName NVARCHAR(128)  NOT NULL,
+		CreatedOn DATETIMEOFFSET NOT NULL DEFAULT(SYSDATETIMEOFFSET()),
+		UpdatedOn DATETIMEOFFSET NOT NULL DEFAULT(SYSDATETIMEOFFSET())
+	);
+END;
 
 --SELECT *
 --FROM MovieDatabase.Directors
