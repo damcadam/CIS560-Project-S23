@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using CIS_560_Project_Team_16.Views;
 
 namespace CIS_560_Project_Team_16
 {
@@ -16,23 +18,52 @@ namespace CIS_560_Project_Team_16
     public partial class AccountLogin : Form
     {
         /// <summary>
-        /// Object for the UserSelection GUI
+        /// Deligate towards the controller that validates the user provided login credentials
         /// </summary>
-        private UserSelection _userWindow = new();
+        ValidateALCredentialsDEL validateCredentials;
 
-        public AccountLogin()
+        /// <summary>
+        /// Deligate towards the controller that has it tell the Account Creation window to Show
+        /// </summary>
+        NotifyControllerShowACWindowDEL showACWindow;
+
+        /// <summary>
+        /// Deligate towards the controller that tells it to show the MainWindow
+        /// </summary>
+        NotifyControllerShowMainWindowDEL showMainWindow;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="validateCredentialsDeligate"></param>
+        /// <param name="showACWindowDeligate"></param>
+        /// <param name="showMainWindowDeligate"></param>
+        public AccountLogin(ValidateALCredentialsDEL validateCredentialsDeligate,
+            NotifyControllerShowACWindowDEL showACWindowDeligate,
+            NotifyControllerShowMainWindowDEL showMainWindowDeligate)
         {
             InitializeComponent();
+            uxALPasswordTextBox.UseSystemPasswordChar = true;
+            validateCredentials = validateCredentialsDeligate;
+            showACWindow = showACWindowDeligate;
+            showMainWindow = showMainWindowDeligate;
         }
 
         /// <summary>
-        /// Sets an object to point at the UserSelection GUI. We need
-        /// the reference to show UserSelection once a valid account is logged in
+        /// Updates the Toolstrip message at the bottom of the login window with the message parameter
         /// </summary>
-        /// <param name="userWindow">UserSelection object created in Program.cs</param>
-        public void SetUserWindow(UserSelection userWindow)
+        /// <param name="message">The message to update the Toolstrip text to</param>
+        public void UpdateToolStripMessage(string message)
         {
-            _userWindow = userWindow;
+            uxALToolStripLabel.Text = message;
+        }
+
+        /// <summary>
+        /// Clears the message in the Toolstrip at the bottom of the login window
+        /// </summary>
+        public void ClearALToolStripMessage()
+        {
+            uxALToolStripLabel.Text = "";
         }
 
         /// <summary>
@@ -44,69 +75,74 @@ namespace CIS_560_Project_Team_16
         /// <param name="e"></param>
         private void uxSignIn_Click(object sender, EventArgs e)
         {
-            if(CheckDBForAccount(false))
+            string username = uxALUsernameTextBox.Text, password = uxALPasswordTextBox.Text;
+
+            //Checks for an account with the provided username and compares passwords
+            if (validateCredentials(username, password))
             {
-                // Show UserSelection and hide AccountLogin
-                PopulateUserSelection();
+                //Clears textboxes
+                uxALUsernameTextBox.Text = "";
+                uxALPasswordTextBox.Text = "";
+
+                //Hides this window and shows MainWindow
+                this.Hide();
+                showMainWindow();
             }
-            // Username/password combo is not in database
+            // Username is not in database
             else
             {
-                uxToolStripLabel.Text = "Username or password is not correct";
+                uxALToolStripLabel.Text = "Username or password is not correct.";
             }
         }
 
         /// <summary>
-        /// Check if the textboxes containsa valid username and password
-        /// </summary>
-        /// <param name="justCheckUserName">True if we are just checking if a username exists
-        /// false if we are checking for both the username and password</param>
-        /// <returns>true for valid accounts, false otherwise</returns>
-        private bool CheckDBForAccount(bool justCheckUserName)
-        {
-            // Search database for this account
-            // Return true if it's in there
-            // False if it's not
-            return true;
-        }
-
-        /// <summary>
-        /// Populate the UserSelection with info from this account
-        /// Then Show UserSelection
-        /// </summary>
-        private void PopulateUserSelection()
-        {
-            this.Hide();
-            _userWindow.Show();
-        }
-
-        /// <summary>
-        /// Create a new account for the user if this username and password
-        /// does not exist in the database
+        /// Opens the Account Creation window and hides the Login window
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void uxCreateAccount_Click(object sender, EventArgs e)
+        private void uxToCreateAccount_Click(object sender, EventArgs e)
         {
-            // Already in there
-            if(CheckDBForAccount(true))
-            {
-                uxToolStripLabel.Text = "There's already an account with that username";
-            }
-            // Brand new account
-            else
-            {
-                CreateAccount();
-                PopulateUserSelection();
-            }
+            this.Hide();
+            ClearALToolStripMessage();
+            uxALPasswordTextBox.Text = "";
+            uxALUsernameTextBox.Text = "";
+            uxALShowPasswordCheckBox.Checked = false;
+            showACWindow();
         }
 
         /// <summary>
-        /// Create a new account with this username and password
+        /// Shows the AccountLogin window
         /// </summary>
-        private void CreateAccount()
+        public void ShowALWindow()
         {
+            this.Show();
+        }
 
+        /// <summary>
+        /// Closes entire application when window is closed to avoid softlock
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AccountLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        /// <summary>
+        /// Shows or hides the password a user has typed in
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uxShowPasswordCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (uxALShowPasswordCheckBox.Checked)
+            {
+                uxALPasswordTextBox.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                uxALPasswordTextBox.UseSystemPasswordChar = true;
+            }
         }
     }
 }
