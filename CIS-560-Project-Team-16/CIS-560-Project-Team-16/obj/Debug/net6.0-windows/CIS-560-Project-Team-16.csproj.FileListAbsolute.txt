@@ -38,3 +38,10 @@ C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560
 C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560-Project-Team-16\obj\Debug\net6.0-windows\CIS-560-Project-Team-16.pdb
 C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560-Project-Team-16\obj\Debug\net6.0-windows\CIS-560-Project-Team-16.genruntimeconfig.cache
 C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560-Project-Team-16\obj\Debug\net6.0-windows\ref\CIS-560-Project-Team-16.dll
+C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560-Project-Team-16\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560-Project-Team-16\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560-Project-Team-16\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560-Project-Team-16\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560-Project-Team-16\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560-Project-Team-16\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560-Project-Team-16\obj\Debug\net6.0-windows\CIS-560-Project-Team-16.csproj.CopyComplete
