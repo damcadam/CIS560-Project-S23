@@ -100,6 +100,7 @@
             uxALPasswordTextBox.Name = "uxALPasswordTextBox";
             uxALPasswordTextBox.Size = new Size(400, 31);
             uxALPasswordTextBox.TabIndex = 5;
+            uxALPasswordTextBox.KeyDown += uxALPasswordTextBox_KeyDown;
             // 
             // uxALStatusStrip
             // 

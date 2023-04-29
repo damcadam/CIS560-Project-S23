@@ -1,6 +1,6 @@
 ﻿namespace CIS_560_Project_Team_16
 {
-    partial class MainWindow
+    partial class uxMainWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -28,205 +28,249 @@
         /// </summary>
         private void InitializeComponent()
         {
-            uxSignIn = new Button();
-            button1 = new Button();
-            dataGridView1 = new DataGridView();
-            button3 = new Button();
-            button2 = new Button();
-            button4 = new Button();
-            button5 = new Button();
-            button6 = new Button();
-            button7 = new Button();
-            button8 = new Button();
-            button9 = new Button();
-            textBox1 = new TextBox();
-            button10 = new Button();
-            comboBox1 = new ComboBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            uxWatchListButton = new Button();
+            uxMWSignOutButton = new Button();
+            uxMoviesDataGridView = new DataGridView();
+            uxFavoritesButton = new Button();
+            uxMostViewedButton = new Button();
+            uxHighestRatedButton = new Button();
+            uxEditButton = new Button();
+            uxAddButton = new Button();
+            uxSearchTextBox = new TextBox();
+            uxSearchButton = new Button();
+            uxGenreComboBox = new ComboBox();
+            uxTitleLabel = new Label();
+            uxActorsButton = new Button();
+            uxDirectorsButton = new Button();
+            uxMoviesButton = new Button();
+            uxSignedInAsLabel = new Label();
+            uxCurrentUserLabel = new Label();
+            ((System.ComponentModel.ISupportInitialize)uxMoviesDataGridView).BeginInit();
             SuspendLayout();
             // 
-            // uxSignIn
+            // uxWatchListButton
             // 
-            uxSignIn.Location = new Point(1223, 128);
-            uxSignIn.Margin = new Padding(4, 5, 4, 5);
-            uxSignIn.Name = "uxSignIn";
-            uxSignIn.Size = new Size(187, 102);
-            uxSignIn.TabIndex = 1;
-            uxSignIn.Text = "Watch List";
-            uxSignIn.UseVisualStyleBackColor = true;
+            uxWatchListButton.Location = new Point(1243, 128);
+            uxWatchListButton.Margin = new Padding(4, 5, 4, 5);
+            uxWatchListButton.Name = "uxWatchListButton";
+            uxWatchListButton.Size = new Size(187, 102);
+            uxWatchListButton.TabIndex = 1;
+            uxWatchListButton.Text = "Watch List";
+            uxWatchListButton.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // uxMWSignOutButton
             // 
-            button1.Location = new Point(1223, 20);
-            button1.Margin = new Padding(4, 5, 4, 5);
-            button1.Name = "button1";
-            button1.Size = new Size(187, 42);
-            button1.TabIndex = 2;
-            button1.Text = "Sign Out";
-            button1.UseVisualStyleBackColor = true;
+            uxMWSignOutButton.Location = new Point(894, 76);
+            uxMWSignOutButton.Margin = new Padding(4, 5, 4, 5);
+            uxMWSignOutButton.Name = "uxMWSignOutButton";
+            uxMWSignOutButton.Size = new Size(124, 42);
+            uxMWSignOutButton.TabIndex = 2;
+            uxMWSignOutButton.Text = "Sign Out";
+            uxMWSignOutButton.UseVisualStyleBackColor = true;
+            uxMWSignOutButton.Click += uxMWSignOut_Click;
             // 
-            // dataGridView1
+            // uxMoviesDataGridView
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(17, 128);
-            dataGridView1.Margin = new Padding(4, 5, 4, 5);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(1001, 863);
-            dataGridView1.TabIndex = 4;
+            uxMoviesDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            uxMoviesDataGridView.Location = new Point(17, 128);
+            uxMoviesDataGridView.Margin = new Padding(4, 5, 4, 5);
+            uxMoviesDataGridView.Name = "uxMoviesDataGridView";
+            uxMoviesDataGridView.RowHeadersWidth = 62;
+            uxMoviesDataGridView.RowTemplate.Height = 25;
+            uxMoviesDataGridView.Size = new Size(1001, 653);
+            uxMoviesDataGridView.TabIndex = 4;
             // 
-            // button3
+            // uxFavoritesButton
             // 
-            button3.Location = new Point(1027, 128);
-            button3.Margin = new Padding(4, 5, 4, 5);
-            button3.Name = "button3";
-            button3.Size = new Size(187, 102);
-            button3.TabIndex = 5;
-            button3.Text = "Favorites";
-            button3.UseVisualStyleBackColor = true;
+            uxFavoritesButton.Location = new Point(1243, 240);
+            uxFavoritesButton.Margin = new Padding(4, 5, 4, 5);
+            uxFavoritesButton.Name = "uxFavoritesButton";
+            uxFavoritesButton.Size = new Size(187, 102);
+            uxFavoritesButton.TabIndex = 5;
+            uxFavoritesButton.Text = "Favorites";
+            uxFavoritesButton.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // uxMostViewedButton
             // 
-            button2.Location = new Point(1027, 352);
-            button2.Margin = new Padding(4, 5, 4, 5);
-            button2.Name = "button2";
-            button2.Size = new Size(187, 102);
-            button2.TabIndex = 6;
-            button2.Text = "Most Viewed";
-            button2.UseVisualStyleBackColor = true;
+            uxMostViewedButton.Location = new Point(1243, 352);
+            uxMostViewedButton.Margin = new Padding(4, 5, 4, 5);
+            uxMostViewedButton.Name = "uxMostViewedButton";
+            uxMostViewedButton.Size = new Size(187, 102);
+            uxMostViewedButton.TabIndex = 6;
+            uxMostViewedButton.Text = "Most Viewed";
+            uxMostViewedButton.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // uxHighestRatedButton
             // 
-            button4.Location = new Point(1223, 352);
-            button4.Margin = new Padding(4, 5, 4, 5);
-            button4.Name = "button4";
-            button4.Size = new Size(187, 102);
-            button4.TabIndex = 7;
-            button4.Text = "Highest Rated";
-            button4.UseVisualStyleBackColor = true;
+            uxHighestRatedButton.Location = new Point(1243, 463);
+            uxHighestRatedButton.Margin = new Padding(4, 5, 4, 5);
+            uxHighestRatedButton.Name = "uxHighestRatedButton";
+            uxHighestRatedButton.Size = new Size(187, 102);
+            uxHighestRatedButton.TabIndex = 7;
+            uxHighestRatedButton.Text = "Highest Rated";
+            uxHighestRatedButton.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // uxEditButton
             // 
-            button5.Location = new Point(1223, 240);
-            button5.Margin = new Padding(4, 5, 4, 5);
-            button5.Name = "button5";
-            button5.Size = new Size(187, 102);
-            button5.TabIndex = 8;
-            button5.Text = "Edit";
-            button5.UseVisualStyleBackColor = true;
+            uxEditButton.Location = new Point(1027, 575);
+            uxEditButton.Margin = new Padding(4, 5, 4, 5);
+            uxEditButton.Name = "uxEditButton";
+            uxEditButton.Size = new Size(187, 102);
+            uxEditButton.TabIndex = 8;
+            uxEditButton.Text = "Edit";
+            uxEditButton.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // uxAddButton
             // 
-            button6.Location = new Point(1027, 240);
-            button6.Margin = new Padding(4, 5, 4, 5);
-            button6.Name = "button6";
-            button6.Size = new Size(187, 102);
-            button6.TabIndex = 9;
-            button6.Text = "Add";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
+            uxAddButton.Location = new Point(1027, 463);
+            uxAddButton.Margin = new Padding(4, 5, 4, 5);
+            uxAddButton.Name = "uxAddButton";
+            uxAddButton.Size = new Size(187, 102);
+            uxAddButton.TabIndex = 9;
+            uxAddButton.Text = "Add";
+            uxAddButton.UseVisualStyleBackColor = true;
+            uxAddButton.Click += uxAddButton_Click;
             // 
-            // button7
+            // uxSearchTextBox
             // 
-            button7.Location = new Point(727, 77);
-            button7.Margin = new Padding(4, 5, 4, 5);
-            button7.Name = "button7";
-            button7.Size = new Size(187, 42);
-            button7.TabIndex = 10;
-            button7.Text = "Show Actors";
-            button7.UseVisualStyleBackColor = true;
+            uxSearchTextBox.Location = new Point(1027, 743);
+            uxSearchTextBox.Margin = new Padding(4, 5, 4, 5);
+            uxSearchTextBox.Name = "uxSearchTextBox";
+            uxSearchTextBox.PlaceholderText = "Enter Title Here";
+            uxSearchTextBox.Size = new Size(186, 31);
+            uxSearchTextBox.TabIndex = 13;
             // 
-            // button8
+            // uxSearchButton
             // 
-            button8.Location = new Point(531, 77);
-            button8.Margin = new Padding(4, 5, 4, 5);
-            button8.Name = "button8";
-            button8.Size = new Size(187, 42);
-            button8.TabIndex = 11;
-            button8.Text = "Show Directors";
-            button8.UseVisualStyleBackColor = true;
+            uxSearchButton.Location = new Point(1243, 683);
+            uxSearchButton.Margin = new Padding(4, 5, 4, 5);
+            uxSearchButton.Name = "uxSearchButton";
+            uxSearchButton.Size = new Size(187, 98);
+            uxSearchButton.TabIndex = 14;
+            uxSearchButton.Text = "Search";
+            uxSearchButton.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // uxGenreComboBox
             // 
-            button9.Location = new Point(336, 77);
-            button9.Margin = new Padding(4, 5, 4, 5);
-            button9.Name = "button9";
-            button9.Size = new Size(187, 42);
-            button9.TabIndex = 12;
-            button9.Text = "Show Movies";
-            button9.UseVisualStyleBackColor = true;
+            uxGenreComboBox.FormattingEnabled = true;
+            uxGenreComboBox.Items.AddRange(new object[] { "Documentary", "Short", "Sport", "Comedy", "Horror", "Drama", "News", "Fantasy", "History", "Romance", "Adventure", "Crime", "Action", "Western", "Biography", "War", "Thriller", "Sci-Fi", "Family", "Animation", "Mystery", "Music", "Musical", "Film-Noir", "Talk-Show", "Game-Show", "Adult", "Reality-TV", "None" });
+            uxGenreComboBox.Location = new Point(1027, 700);
+            uxGenreComboBox.Margin = new Padding(4, 5, 4, 5);
+            uxGenreComboBox.Name = "uxGenreComboBox";
+            uxGenreComboBox.Size = new Size(186, 33);
+            uxGenreComboBox.TabIndex = 15;
+            uxGenreComboBox.Text = "Genres";
             // 
-            // textBox1
+            // uxTitleLabel
             // 
-            textBox1.Location = new Point(17, 80);
-            textBox1.Margin = new Padding(4, 5, 4, 5);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(210, 31);
-            textBox1.TabIndex = 13;
+            uxTitleLabel.AutoSize = true;
+            uxTitleLabel.Font = new Font("Franklin Gothic Heavy", 36F, FontStyle.Regular, GraphicsUnit.Point);
+            uxTitleLabel.Location = new Point(17, 27);
+            uxTitleLabel.Margin = new Padding(4, 0, 4, 0);
+            uxTitleLabel.Name = "uxTitleLabel";
+            uxTitleLabel.Size = new Size(584, 91);
+            uxTitleLabel.TabIndex = 21;
+            uxTitleLabel.Text = "Movie Database";
             // 
-            // button10
+            // uxActorsButton
             // 
-            button10.Location = new Point(237, 23);
-            button10.Margin = new Padding(4, 5, 4, 5);
-            button10.Name = "button10";
-            button10.Size = new Size(90, 98);
-            button10.TabIndex = 14;
-            button10.Text = "Search";
-            button10.UseVisualStyleBackColor = true;
+            uxActorsButton.Location = new Point(1027, 128);
+            uxActorsButton.Margin = new Padding(4, 5, 4, 5);
+            uxActorsButton.Name = "uxActorsButton";
+            uxActorsButton.Size = new Size(187, 102);
+            uxActorsButton.TabIndex = 22;
+            uxActorsButton.Text = "Actors";
+            uxActorsButton.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // uxDirectorsButton
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(17, 23);
-            comboBox1.Margin = new Padding(4, 5, 4, 5);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(210, 33);
-            comboBox1.TabIndex = 15;
+            uxDirectorsButton.Location = new Point(1027, 352);
+            uxDirectorsButton.Margin = new Padding(4, 5, 4, 5);
+            uxDirectorsButton.Name = "uxDirectorsButton";
+            uxDirectorsButton.Size = new Size(187, 102);
+            uxDirectorsButton.TabIndex = 23;
+            uxDirectorsButton.Text = "Directors";
+            uxDirectorsButton.UseVisualStyleBackColor = true;
             // 
-            // MainWindow
+            // uxMoviesButton
+            // 
+            uxMoviesButton.Location = new Point(1027, 240);
+            uxMoviesButton.Margin = new Padding(4, 5, 4, 5);
+            uxMoviesButton.Name = "uxMoviesButton";
+            uxMoviesButton.Size = new Size(187, 102);
+            uxMoviesButton.TabIndex = 24;
+            uxMoviesButton.Text = "Movies";
+            uxMoviesButton.UseVisualStyleBackColor = true;
+            // 
+            // uxSignedInAsLabel
+            // 
+            uxSignedInAsLabel.AutoSize = true;
+            uxSignedInAsLabel.Location = new Point(608, 85);
+            uxSignedInAsLabel.Name = "uxSignedInAsLabel";
+            uxSignedInAsLabel.Size = new Size(116, 25);
+            uxSignedInAsLabel.TabIndex = 25;
+            uxSignedInAsLabel.Text = "Signed In As:";
+            // 
+            // uxCurrentUserLabel
+            // 
+            uxCurrentUserLabel.AutoSize = true;
+            uxCurrentUserLabel.Location = new Point(720, 85);
+            uxCurrentUserLabel.Name = "uxCurrentUserLabel";
+            uxCurrentUserLabel.Size = new Size(123, 25);
+            uxCurrentUserLabel.TabIndex = 26;
+            uxCurrentUserLabel.Text = "usernamehere";
+            // 
+            // uxMainWindow
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1423, 1050);
-            Controls.Add(comboBox1);
-            Controls.Add(button10);
-            Controls.Add(textBox1);
-            Controls.Add(button9);
-            Controls.Add(button8);
-            Controls.Add(button7);
-            Controls.Add(button6);
-            Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(button2);
-            Controls.Add(button3);
-            Controls.Add(dataGridView1);
-            Controls.Add(button1);
-            Controls.Add(uxSignIn);
+            ClientSize = new Size(1447, 796);
+            Controls.Add(uxCurrentUserLabel);
+            Controls.Add(uxSignedInAsLabel);
+            Controls.Add(uxMoviesButton);
+            Controls.Add(uxDirectorsButton);
+            Controls.Add(uxActorsButton);
+            Controls.Add(uxTitleLabel);
+            Controls.Add(uxGenreComboBox);
+            Controls.Add(uxSearchButton);
+            Controls.Add(uxSearchTextBox);
+            Controls.Add(uxAddButton);
+            Controls.Add(uxEditButton);
+            Controls.Add(uxHighestRatedButton);
+            Controls.Add(uxMostViewedButton);
+            Controls.Add(uxFavoritesButton);
+            Controls.Add(uxMoviesDataGridView);
+            Controls.Add(uxMWSignOutButton);
+            Controls.Add(uxWatchListButton);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(4, 5, 4, 5);
-            Name = "MainWindow";
+            Name = "uxMainWindow";
             Text = "Movie Database";
             FormClosed += MainWindow_FormClosed;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += MainWindow_Load;
+            ((System.ComponentModel.ISupportInitialize)uxMoviesDataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button uxSignIn;
-        private Button button1;
-        private DataGridView dataGridView1;
-        private Button button3;
-        private Button button2;
-        private Button button4;
-        private Button button5;
-        private Button button6;
-        private Button button7;
-        private Button button8;
-        private Button button9;
-        private TextBox textBox1;
-        private Button button10;
-        private ComboBox comboBox1;
+        private Button uxWatchListButton;
+        private Button uxMWSignOutButton;
+        private DataGridView uxMoviesDataGridView;
+        private Button uxFavoritesButton;
+        private Button uxMostViewedButton;
+        private Button uxHighestRatedButton;
+        private Button uxEditButton;
+        private Button uxAddButton;
+        private TextBox uxSearchTextBox;
+        private Button uxSearchButton;
+        private ComboBox uxGenreComboBox;
+        private Label uxTitleLabel;
+        private Button uxActorsButton;
+        private Button uxDirectorsButton;
+        private Button uxMoviesButton;
+        private Label uxSignedInAsLabel;
+        private Label uxCurrentUserLabel;
     }
 }

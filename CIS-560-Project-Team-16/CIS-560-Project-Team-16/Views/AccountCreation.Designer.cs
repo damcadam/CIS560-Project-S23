@@ -121,6 +121,7 @@
             uxACPasswordConfirmTextBox.Name = "uxACPasswordConfirmTextBox";
             uxACPasswordConfirmTextBox.Size = new Size(324, 31);
             uxACPasswordConfirmTextBox.TabIndex = 7;
+            uxACPasswordConfirmTextBox.KeyDown += uxACPasswordConfirmTextBox_KeyDown;
             // 
             // uxACToLogInPromptLabel
             // 
