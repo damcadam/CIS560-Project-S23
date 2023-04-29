@@ -1,12 +1,15 @@
 ﻿using CIS_560_Project_Team_16.Models;
 using CIS_560_Project_Team_16.Views;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace CIS_560_Project_Team_16.Controllers
 {
@@ -74,7 +77,7 @@ namespace CIS_560_Project_Team_16.Controllers
         /// </summary>
         private void ResetUser()
         {
-            user = new("", new List<MovieModel>(), new List<MovieModel>());
+            user = new("-1", "", "");
         }
 
         /// <summary>
@@ -90,30 +93,36 @@ namespace CIS_560_Project_Team_16.Controllers
         /// Checks both username and password and returns accordingly
         /// </summary>
         /// <param name="username">The username pulled from the username textbox</param>
-        /// <param name="user_password">The password pulled from password textbox</param>
+        /// <param name="password">The password pulled from password textbox</param>
         /// <returns>True if login credentials were valid, false otherwise</returns>
-        public bool ValidateCredentials_AL(string username, string user_password)
+        public bool ValidateCredentials_AL(string username, string password)
         {
             //Clears AL toolstrip message, if any
             clearALToolStripMessage();
 
             //Query to pulls the specified username and password combo, if possible
-            string loginQuery = "SELECT * FROM MovieDatabase.Account WHERE username = @username AND password = @user_password";
+            string loginQuery = "SELECT * FROM MovieDatabase.Account WHERE username=@username AND password=@password";
 
-            //Adapts the information retrieved into a format that can be stored in a few different ways
-            //here in C#
-            SqlDataAdapter sdaLogin = new SqlDataAdapter(loginQuery, loginDBconnection);
-
-            //Creates a datatable to store the information temporarily
-            DataTable dtLogin = new DataTable();
-            sdaLogin.Fill(dtLogin);
-
-            if (dtLogin.Rows.Count > 0)
+            SqlCommand oCmd = new SqlCommand(loginQuery, loginDBconnection);
+            oCmd.Parameters.AddWithValue("@username", username);
+            oCmd.Parameters.AddWithValue("@password", password);
+            loginDBconnection.Open();
+            using (SqlDataReader oReader = oCmd.ExecuteReader())
             {
-                //-----ADD THE OTHER USER INFORMATION-----
-                user.Username = username;
-                
-                updateCurrentUserLabel(username);
+                while (oReader.Read())
+                {
+                    //-----ADD THE OTHER USER INFORMATION-----
+                    user = new(oReader["accountId"].ToString(),
+                        oReader["username"].ToString(),
+                        "TBD");
+                }
+
+                loginDBconnection.Close();
+            }
+            //Simply confirms the username pulled from the table is the one the user input
+            if (user.Username.ToLower() == username.ToLower())
+            {
+                updateCurrentUserLabel(user.Username);
                 return true;
             }
             else
