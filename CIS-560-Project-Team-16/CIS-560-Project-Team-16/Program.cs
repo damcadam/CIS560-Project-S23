@@ -9,6 +9,8 @@ using System.Transactions;
 using System.IO;
 using CIS_560_Project_Team_16.Models;
 using Microsoft.VisualBasic.ApplicationServices;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace CIS_560_Project_Team_16
 {
@@ -57,6 +59,8 @@ namespace CIS_560_Project_Team_16
             controller.RegisterShowALWindowDel(logInWindow.ShowALWindow);
             controller.RegisterShowMainWindowDel(mainWindow.ShowMainWindow);
 
+            BulkCopyData();
+
             // Run the application
             Application.Run(logInWindow);
         }
@@ -67,7 +71,57 @@ namespace CIS_560_Project_Team_16
         /// </summary>
         private static void BulkCopyData()
         {
+            string command = "bcp";
+            string rootFolder = GetProjectRoot();
 
+            // Build and run BCP command for all the tables
+            string arguments = "CIS560Project.MovieDatabase.Directors in \"" + rootFolder + "\\Sql\\Data\\MovieOutput.tsv\" -S \"(localdb)\\MSSQLLocalDb\" -T -f \"" + rootFolder + "\\Sql\\Data\\DirectorFormat.fmt\" -h \"CHECK_CONSTRAINTS\"";
+            RunCMDCommand(command, arguments);
+        }
+
+        /// <summary>
+        /// Helper method to run a command line command with some args
+        /// </summary>
+        /// <param name="command"></param>
+        /// <param name="args"></param>
+        private static void RunCMDCommand(string command, string args)
+        {
+            System.Diagnostics.Process proc = new System.Diagnostics.Process();
+            proc.StartInfo.FileName = command;
+            proc.StartInfo.Arguments = args;
+            proc.Start();
+            proc.WaitForExit();
+        }
+
+        /// <summary>
+        /// Gets the root folder of the project. Used so the bcp
+        /// command function works for any user.
+        /// </summary>
+        /// <returns>root project folder</returns>
+        /// <exception cref="InvalidOperationException"></exception>
+        static string GetProjectRoot()
+        {
+            // Get the assembly location (where the compiled code resides)
+            string assemblyLocation = Assembly.GetExecutingAssembly().Location;
+
+            // Get the full path of the assembly (including its name)
+            string assemblyPath = Path.GetDirectoryName(assemblyLocation);
+
+            // Move up from the 'bin' folder to the project root folder
+            DirectoryInfo directoryInfo = new DirectoryInfo(assemblyPath);
+            while (directoryInfo.Name != null && !string.Equals(directoryInfo.Name, "bin", StringComparison.OrdinalIgnoreCase))
+            {
+                directoryInfo = directoryInfo.Parent;
+            }
+
+            // If the 'bin' folder is not found, it means that the project root could not be determined
+            if (directoryInfo.Name == null)
+            {
+                throw new InvalidOperationException("Project root folder could not be determined.");
+            }
+
+            // Return the parent folder of 'bin' as the project root folder
+            return directoryInfo.Parent.FullName;
         }
 
         /// <summary>
