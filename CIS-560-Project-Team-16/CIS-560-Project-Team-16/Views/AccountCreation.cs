@@ -151,5 +151,18 @@ namespace CIS_560_Project_Team_16.Views
                 uxACPasswordConfirmTextBox.UseSystemPasswordChar = true;
             }
         }
+
+        /// <summary>
+        /// Method to allow user to press enter key instead of hitting button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uxACPasswordConfirmTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                uxSignUpButton_Click(sender, e);
+            }
+        }
     }
 }
