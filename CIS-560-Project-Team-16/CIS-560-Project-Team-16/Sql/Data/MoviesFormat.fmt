@@ -1,0 +1,12 @@
+14.0 
+10
+1       SQLCHAR       		0       0       "\t"       	0     	Col1         		""
+2       SQLCHAR       		0       256     "\t"       	4     	language       		SQL_Latin1_General_CP1_CI_AS
+3       SQLCHAR       		0       0       "\t"       	0     	Col3         		""
+4       SQLCHAR       		0       0       "\t"       	0     	Col4         		""
+5       SQLCHAR				0       0       "\t"       	0     	Col5         		""
+6       SQLCHAR       		0       256		"\t"		5		movieName			SQL_Latin1_General_CP1_CI_AS
+7       SQLCHAR       		0       256     "\t"       	7     	releaseYear    		SQL_Latin1_General_CP1_CI_AS
+8       SQLCHAR       		0       256     "\t"       	6     	length         		SQL_Latin1_General_CP1_CI_AS
+9       SQLCHAR       		0       0       "\t"       	0     	Col9         		""
+10      SQLCHAR       		0       256     "\r\n"     	3    	actorName  			SQL_Latin1_General_CP1_CI_AS

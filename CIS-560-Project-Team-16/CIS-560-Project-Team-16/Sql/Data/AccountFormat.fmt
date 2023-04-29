@@ -1,0 +1,4 @@
+14.0 
+2
+1       SQLCHAR       	0       256     "\t"       	2     	username         	SQL_Latin1_General_CP1_CI_AS
+2       SQLCHAR			0       256		"\r\n"		3		password			SQL_Latin1_General_CP1_CI_AS
