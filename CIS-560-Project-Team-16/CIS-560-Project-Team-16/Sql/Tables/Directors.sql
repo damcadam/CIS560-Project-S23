@@ -8,6 +8,7 @@ CREATE TABLE MovieDatabase.Directors
 
 SELECT *
 FROM MovieDatabase.Directors
+JOIN MovieDatabase.Movies
 
 -- bcp CIS560Project.MovieDatabase.Directors in "C:\Users\Cade\Source\Repos\CIS560-Project-S23-main\CIS-560-Project-Team-16\CIS-560-Project-Team-16\Sql\Data\MovieOutput.tsv" -S "(localdb)\MSSQLLocalDb" -T -f "C:\Users\Cade\Source\Repos\CIS560-Project-S23-main\CIS-560-Project-Team-16\CIS-560-Project-Team-16\Sql\Data\DirectorFormat.fmt" -h "CHECK_CONSTRAINTS"
 

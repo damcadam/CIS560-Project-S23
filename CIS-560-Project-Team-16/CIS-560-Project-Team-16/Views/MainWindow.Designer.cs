@@ -122,14 +122,14 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(716, 446);
+            textBox1.Location = new Point(716, 510);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(134, 23);
             textBox1.TabIndex = 13;
             // 
             // button10
             // 
-            button10.Location = new Point(870, 410);
+            button10.Location = new Point(870, 474);
             button10.Name = "button10";
             button10.Size = new Size(131, 59);
             button10.TabIndex = 14;
@@ -140,7 +140,7 @@
             // 
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "\tgenres", "Documentary", "Short", "Sport", "Comedy", "Horror", "Drama", "News", "Fantasy", "History", "Romance", "Adventure", "Crime", "Action", "Western", "Biography", "War", "Thriller", "Sci-Fi", "Family", "Animation", "Mystery", "Music", "Musical", "Film-Noir", "Talk-Show", "Game-Show", "Adult", "Reality-TV", "None" });
-            comboBox1.Location = new Point(716, 412);
+            comboBox1.Location = new Point(716, 476);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(134, 23);
             comboBox1.TabIndex = 15;
@@ -172,6 +172,7 @@
             button12.TabIndex = 23;
             button12.Text = "Directors";
             button12.UseVisualStyleBackColor = true;
+            button12.Click += button12_Click;
             // 
             // button13
             // 

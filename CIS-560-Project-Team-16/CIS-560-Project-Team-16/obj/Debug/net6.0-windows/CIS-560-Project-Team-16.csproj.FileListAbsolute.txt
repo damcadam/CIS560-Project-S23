@@ -170,3 +170,4 @@ C:\Users\Cade\Source\Repos\CIS560-Project-S23-main\CIS-560-Project-Team-16\CIS-5
 C:\Users\Cade\Source\Repos\CIS560-Project-S23-main\CIS-560-Project-Team-16\CIS-560-Project-Team-16\bin\Debug\net6.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\Cade\Source\Repos\CIS560-Project-S23-main\CIS-560-Project-Team-16\CIS-560-Project-Team-16\bin\Debug\net6.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\Cade\Source\Repos\CIS560-Project-S23-main\CIS-560-Project-Team-16\CIS-560-Project-Team-16\bin\Debug\net6.0-windows\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\Cade\Source\Repos\CIS560-Project-S23-main\CIS-560-Project-Team-16\CIS-560-Project-Team-16\obj\Debug\net6.0-windows\CIS_560_Project_Team_16.Views.AddEditWindow.resources
