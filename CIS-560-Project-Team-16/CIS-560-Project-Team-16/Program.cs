@@ -75,6 +75,8 @@ namespace CIS_560_Project_Team_16
             string rootFolder = GetProjectRoot();
 
             // Build and run BCP command for all the tables
+
+            // Director
             string arguments = "CIS560Project.MovieDatabase.Directors in \"" + rootFolder + "\\Sql\\Data\\MovieOutput.tsv\" -S \"(localdb)\\MSSQLLocalDb\" -T -f \"" + rootFolder + "\\Sql\\Data\\DirectorFormat.fmt\" -h \"CHECK_CONSTRAINTS\"";
             RunCMDCommand(command, arguments);
         }
