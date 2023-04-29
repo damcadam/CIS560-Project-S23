@@ -37,6 +37,11 @@ namespace CIS_560_Project_Team_16.Controllers
         UpdateACToolStripMessageDEL updateACToolStripMessage;
 
         /// <summary>
+        /// Updates the label in the MainWindow to show the username of the current user logged in
+        /// </summary>
+        UpdateCurrentUserLabelDEL updateCurrentUserLabel;
+
+        /// <summary>
         /// Delegate to show the AC window
         /// </summary>
         ShowACWindowDEL showACWindow;
@@ -61,9 +66,26 @@ namespace CIS_560_Project_Team_16.Controllers
 
         public WindowController()
         {
+            ResetUser();
+        }
+
+        /// <summary>
+        /// Resets the logged in user to a blank state, effectively signing them out
+        /// </summary>
+        private void ResetUser()
+        {
             user = new("", new List<MovieModel>(), new List<MovieModel>());
         }
 
+        /// <summary>
+        /// Signs out and shows login window
+        /// </summary>
+        public void SignOut()
+        {
+            ResetUser();
+            showALWindow();
+        }
+        
         /// <summary>
         /// Checks both username and password and returns accordingly
         /// </summary>
@@ -76,7 +98,7 @@ namespace CIS_560_Project_Team_16.Controllers
             clearALToolStripMessage();
 
             //Query to pulls the specified username and password combo, if possible
-            string loginQuery = "SELECT * FROM MovieDatabase.Account WHERE username = '" + username + "' AND password = '" + user_password + "'";
+            string loginQuery = "SELECT * FROM MovieDatabase.Account WHERE username = @username AND password = @user_password";
 
             //Adapts the information retrieved into a format that can be stored in a few different ways
             //here in C#
@@ -88,8 +110,10 @@ namespace CIS_560_Project_Team_16.Controllers
 
             if (dtLogin.Rows.Count > 0)
             {
-                //-----Temporary message to show the credentials matched-----
-                //updateALToolStripMessage("Credentials validated!");
+                //-----ADD THE OTHER USER INFORMATION-----
+                user.Username = username;
+                
+                updateCurrentUserLabel(username);
                 return true;
             }
             else
@@ -221,6 +245,15 @@ namespace CIS_560_Project_Team_16.Controllers
         public void RegisterUpdateACMessageDel(UpdateACToolStripMessageDEL del)
         {
             updateACToolStripMessage = del;
+        }
+
+        /// <summary>
+        /// Registers the deligate towards the main window that shows the current user logged in
+        /// </summary>
+        /// <param name="del">The method that shows the current uaer</param>
+        public void RegisterUpdateCurrentUserLabel(UpdateCurrentUserLabelDEL del)
+        {
+            updateCurrentUserLabel = del;
         }
 
         /// <summary>

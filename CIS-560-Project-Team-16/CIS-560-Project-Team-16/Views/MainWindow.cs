@@ -15,22 +15,35 @@ namespace CIS_560_Project_Team_16
 {
     public partial class MainWindow : Form
     {
-        public MainWindow()
+        /// <summary>
+        /// Deligate towards controller that notifies it to log out the current user
+        /// </summary>
+        SignOutUserDEL signOut;
+
+        public MainWindow(SignOutUserDEL signOutDeligate)
         {
             InitializeComponent();
+            signOut = signOutDeligate;
         }
 
+        /// <summary>
+        /// Shows the MainWindow
+        /// </summary>
         public void ShowMainWindow()
         {
             this.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Shows who is currently logged in
+        /// </summary>
+        /// <param name="username">The username of the current user</param>
+        public void UpdateCurrentUserLabel(string username)
         {
-
+            uxCurrentUserLabel.Text = username;
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void uxAddButton_Click(object sender, EventArgs e)
         {
 
         }
@@ -98,5 +111,19 @@ namespace CIS_560_Project_Team_16
                 dataGridView1.DataSource = tableNames;
             }*/
         }
+
+        /// <summary>
+        /// Signs the user out of the MovieDatabase, tells controller to reopen the LoginWindow.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uxMWSignOut_Click(object sender, EventArgs e)
+        {
+            //Reset the view
+            this.Hide();
+            signOut();
+        }
+
+
     }
 }

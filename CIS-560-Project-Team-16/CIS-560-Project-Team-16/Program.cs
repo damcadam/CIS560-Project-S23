@@ -16,9 +16,11 @@ namespace CIS_560_Project_Team_16
     public delegate void UpdateALToolStripMessageDEL(string message);
     public delegate void ClearACToolStripMessageDEL();
     public delegate void UpdateACToolStripMessageDEL(string message);
+    public delegate void UpdateCurrentUserLabelDEL(string username);
     public delegate bool ValidateALCredentialsDEL(string username, string user_password);
     public delegate bool CheckACDBForUsernameDEL(string username);
     public delegate bool CompareACPasswordsDEL(string username, string password1, string password2);
+    public delegate void SignOutUserDEL();
     public delegate void ShowACWindowDEL();
     public delegate void NotifyControllerShowACWindowDEL();
     public delegate void ShowALWindowDEL();
@@ -46,7 +48,7 @@ namespace CIS_560_Project_Team_16
             AccountCreation accCreateWindow = new(controller.CheckDBForUsername_AC,
                 controller.ComparePasswords_AC,
                 controller.ShowALWindowController);
-            MainWindow mainWindow = new();
+            MainWindow mainWindow = new(controller.SignOut);
 
             //Register all communicative methods between views and controller
             controller.RegisterClearALMessageDel(logInWindow.ClearALToolStripMessage);
@@ -56,6 +58,7 @@ namespace CIS_560_Project_Team_16
             controller.RegisterShowACWindowDel(accCreateWindow.ShowACWindow);
             controller.RegisterShowALWindowDel(logInWindow.ShowALWindow);
             controller.RegisterShowMainWindowDel(mainWindow.ShowMainWindow);
+            controller.RegisterUpdateCurrentUserLabel(mainWindow.UpdateCurrentUserLabel);
 
             // Run the application
             Application.Run(logInWindow);
