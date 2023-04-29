@@ -13,4 +13,4 @@ END;
 SELECT *
 FROM MovieDatabase.Actor
 
--- bcp CIS560Project.MovieDatabase.Actor in "C:\Users\Isaiah\source\repos\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\Sql\Data\MovieOutput.tsv" -S "(localdb)\MSSQLLocalDb" -T -f ActorFormat.fmt -h "CHECK_CONSTRAINTS"
+-- bcp CIS560Project.MovieDatabase.Actor in "C:\Users\WaterMan\source\repos\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\Sql\Data\MovieOutput.tsv" -S "(localdb)\MSSQLLocalDb" -T -f ActorFormat.fmt -h "CHECK_CONSTRAINTS"
