@@ -37,7 +37,7 @@ namespace CIS_560_Project_Team_16
             ApplicationConfiguration.Initialize();
 
             //Creates controller
-            WindowController controller = new WindowController();
+            WindowController controller = new();
 
             // Create the different forms
             AccountLogin logInWindow = new(controller.ValidateCredentials_AL,
