@@ -8,15 +8,13 @@ BEGIN
 		movieId int IDENTITY(1,1) PRIMARY KEY,
 		directorId INT --NOT NULL??????????????????????????????????????????????????????????????
 			FOREIGN KEY REFERENCES MovieDatabase.Directors(directorId),
-		actorName NVARCHAR(128) NOT NULL,
-		[language] NVARCHAR(128) NOT NULL,
-		movieName NVARCHAR(128) NOT NULL,
+		[name] NVARCHAR(128) NOT NULL,
+		-- length is movie length in minutes
 		[length] NVARCHAR(128) NOT NULL,
-		releaseYear NVARCHAR(128) NOT NULL,
+		-- Release data is given as a year eg 1992
+		releaseDate NVARCHAR(128) NOT NULL,
 	);
 END;
-
---create the relationship table for Languages
 
 SELECT *
 FROM MovieDatabase.Movies

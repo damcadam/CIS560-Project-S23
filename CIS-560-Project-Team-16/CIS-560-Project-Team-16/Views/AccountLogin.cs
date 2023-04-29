@@ -144,18 +144,5 @@ namespace CIS_560_Project_Team_16
                 uxALPasswordTextBox.UseSystemPasswordChar = true;
             }
         }
-
-        /// <summary>
-        /// Method to allow user to press the enter key instead of hitting button
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void uxALPasswordTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if(e.KeyCode == Keys.Enter)
-            {
-                uxSignIn_Click(sender, e);
-            }
-        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿/*
-This procedure is a test procedure that inserts a string in the fullName column
-of the Directors table. It also returns the name that come alphabetically first in the column.
+This procedure is a test procedure that inserts a 
+string in the fullName columnof the Directors table. 
+It also returns the name that come alphabetically first in the column.
 */
 
 CREATE OR ALTER PROCEDURE MovieDatabase.TestProc

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Waterman\\source\\repos\\CIS560-Project-S23\\CIS-560-Project-Team-16\\CIS-560-Project-Team-16\\CIS-560-Project-Team-16.csproj": {}
+    "C:\\Users\\darja\\Desktop\\CIS 560\\Project My Branch\\CIS-560-Project-Team-16\\CIS-560-Project-Team-16\\CIS-560-Project-Team-16.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Waterman\\source\\repos\\CIS560-Project-S23\\CIS-560-Project-Team-16\\CIS-560-Project-Team-16\\CIS-560-Project-Team-16.csproj": {
+    "C:\\Users\\darja\\Desktop\\CIS 560\\Project My Branch\\CIS-560-Project-Team-16\\CIS-560-Project-Team-16\\CIS-560-Project-Team-16.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Waterman\\source\\repos\\CIS560-Project-S23\\CIS-560-Project-Team-16\\CIS-560-Project-Team-16\\CIS-560-Project-Team-16.csproj",
+        "projectUniqueName": "C:\\Users\\darja\\Desktop\\CIS 560\\Project My Branch\\CIS-560-Project-Team-16\\CIS-560-Project-Team-16\\CIS-560-Project-Team-16.csproj",
         "projectName": "CIS-560-Project-Team-16",
-        "projectPath": "C:\\Users\\Waterman\\source\\repos\\CIS560-Project-S23\\CIS-560-Project-Team-16\\CIS-560-Project-Team-16\\CIS-560-Project-Team-16.csproj",
-        "packagesPath": "C:\\Users\\Waterman\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Waterman\\source\\repos\\CIS560-Project-S23\\CIS-560-Project-Team-16\\CIS-560-Project-Team-16\\obj\\",
+        "projectPath": "C:\\Users\\darja\\Desktop\\CIS 560\\Project My Branch\\CIS-560-Project-Team-16\\CIS-560-Project-Team-16\\CIS-560-Project-Team-16.csproj",
+        "packagesPath": "C:\\Users\\darja\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\darja\\Desktop\\CIS 560\\Project My Branch\\CIS-560-Project-Team-16\\CIS-560-Project-Team-16\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Waterman\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\darja\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,10 +40,6 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "dependencies": {
-            "FluentMigrator.Runner.SqlServerCe": {
-              "target": "Package",
-              "version": "[3.3.2, )"
-            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.5, )"
@@ -68,7 +64,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

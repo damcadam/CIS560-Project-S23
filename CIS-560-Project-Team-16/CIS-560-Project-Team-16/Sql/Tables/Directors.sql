@@ -15,7 +15,10 @@ END;
 SELECT *
 FROM MovieDatabase.Directors
 
--- bcp CIS560Project.MovieDatabase.Directors in "C:\Users\WaterMan\source\repos\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\Sql\Data\MovieOutput.tsv" -S "(localdb)\MSSQLLocalDb" -T -f DirectorFormat.fmt -h "CHECK_CONSTRAINTS"
+-- bcp CIS560Project.MovieDatabase.Directors in "C:\Users\Isaiah\source\repos\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\Sql\Data\MovieOutput.tsv" -S "(localdb)\MSSQLLocalDb" -T -f DirectorFormat.fmt -h "CHECK_CONSTRAINTS"
+-- Darius'
+-- bcp CIS560Project.MovieDatabase.Directors in "C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560-Project-Team-16\Sql\Data\MovieOutput.tsv" -S "(localdb)\MSSQLLocalDb" -T -f "C:\Users\darja\Desktop\CIS 560\Project My Branch\CIS-560-Project-Team-16\CIS-560-Project-Team-16\Sql\Data\DirectorFormat.fmt" -h "CHECK_CONSTRAINTS"
+-- bcp CIS560Project.MovieDatabase.Directors in "C:\Users\Isaiah\source\repos\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\Sql\Data\MovieOutput.tsv" -S "(localdb)\MSSQLLocalDb" -T -f DirectorFormat.fmt -h "CHECK_CONSTRAINTS"
 
 SELECT MDD.fullName
 FROM MovieDatabase.Directors MDD
