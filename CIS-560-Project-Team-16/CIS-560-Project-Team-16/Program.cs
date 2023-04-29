@@ -12,15 +12,18 @@ using Microsoft.VisualBasic.ApplicationServices;
 
 namespace CIS_560_Project_Team_16
 {
+    //Deligates meant to update the a View's control's message
     public delegate void ClearALToolStripMessageDEL();
     public delegate void UpdateALToolStripMessageDEL(string message);
     public delegate void ClearACToolStripMessageDEL();
     public delegate void UpdateACToolStripMessageDEL(string message);
     public delegate void UpdateCurrentUserLabelDEL(string username);
+    //Deligates meant to access DB in login and account creation
     public delegate bool ValidateALCredentialsDEL(string username, string user_password);
     public delegate bool CheckACDBForUsernameDEL(string username);
     public delegate bool CompareACPasswordsDEL(string username, string password1, string password2);
     public delegate void SignOutUserDEL();
+    //Deligates meant to show/hide windows
     public delegate void ShowACWindowDEL();
     public delegate void NotifyControllerShowACWindowDEL();
     public delegate void ShowALWindowDEL();
@@ -48,7 +51,7 @@ namespace CIS_560_Project_Team_16
             AccountCreation accCreateWindow = new(controller.CheckDBForUsername_AC,
                 controller.ComparePasswords_AC,
                 controller.ShowALWindowController);
-            MainWindow mainWindow = new(controller.SignOut);
+            uxMainWindow mainWindow = new(controller.SignOut);
 
             //Register all communicative methods between views and controller
             controller.RegisterClearALMessageDel(logInWindow.ClearALToolStripMessage);
@@ -60,7 +63,7 @@ namespace CIS_560_Project_Team_16
             controller.RegisterShowMainWindowDel(mainWindow.ShowMainWindow);
             controller.RegisterUpdateCurrentUserLabel(mainWindow.UpdateCurrentUserLabel);
 
-            // Run the application
+            // Runs the application, starting at the login page
             Application.Run(logInWindow);
         }
 

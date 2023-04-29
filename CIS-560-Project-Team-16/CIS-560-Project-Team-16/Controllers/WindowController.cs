@@ -18,7 +18,6 @@ namespace CIS_560_Project_Team_16.Controllers
     /// </summary>
     public class WindowController
     {
-
         /// <summary>
         /// Delegate to clear the AL tool strip message
         /// </summary>
@@ -77,7 +76,7 @@ namespace CIS_560_Project_Team_16.Controllers
         /// </summary>
         private void ResetUser()
         {
-            user = new("-1", "", "");
+            user = new(-1, "__NO__USER__", -1);
         }
 
         /// <summary>
@@ -103,6 +102,7 @@ namespace CIS_560_Project_Team_16.Controllers
             //Query to pulls the specified username and password combo, if possible
             string loginQuery = "SELECT * FROM MovieDatabase.Account WHERE username=@username AND password=@password";
 
+
             SqlCommand oCmd = new SqlCommand(loginQuery, loginDBconnection);
             oCmd.Parameters.AddWithValue("@username", username);
             oCmd.Parameters.AddWithValue("@password", password);
@@ -112,9 +112,9 @@ namespace CIS_560_Project_Team_16.Controllers
                 while (oReader.Read())
                 {
                     //-----ADD THE OTHER USER INFORMATION-----
-                    user = new(oReader["accountId"].ToString(),
-                        oReader["username"].ToString(),
-                        "TBD");
+                    user = new(Convert.ToInt32(oReader["accountId"]), //AccountID
+                        oReader["username"].ToString(),               //Username
+                        -1);                                          //WatchListID (unloaded)
                 }
 
                 loginDBconnection.Close();
@@ -127,11 +127,16 @@ namespace CIS_560_Project_Team_16.Controllers
             }
             else
             {
-                //Updates the AL toolstrip message to show that provided information does not match
-                //anything on record
+                //Updates the AL toolstrip message to show that provided information does not
+                //match anything on record
                 updateALToolStripMessage("Username or password is incorrect");
                 return false;
             }
+        }
+
+        private void AccessWatchListID(int accountID)
+        {
+            string query = "";
         }
 
         /// <summary>
@@ -145,20 +150,26 @@ namespace CIS_560_Project_Team_16.Controllers
             clearALToolStripMessage();
 
             //Query to check only for the given username
-            string usernameCheckQuery = "SELECT * FROM MovieDatabase.Account WHERE username = '" + username + "'";
+            string usernameCheckQuery = "SELECT * FROM MovieDatabase.Account WHERE username=@username";
 
             try
             {
-                //Executes query
-                SqlDataAdapter sdaUsername = new SqlDataAdapter(usernameCheckQuery, loginDBconnection);
+                SqlCommand oCmd = new SqlCommand(usernameCheckQuery, loginDBconnection);
+                oCmd.Parameters.AddWithValue("@username", username);
+                loginDBconnection.Open();
 
-                //Creates and stores the username in a datatable, if it exists. Otherwise, creates
-                //empty datatable
-                DataTable usernamePull = new DataTable();
-                sdaUsername.Fill(usernamePull);
+                string? usernameFromDB = null;
+                using (SqlDataReader oReader = oCmd.ExecuteReader())
+                {
+                    while (oReader.Read())
+                    {
+                        usernameFromDB = oReader["username"].ToString();
+                    }
+                    loginDBconnection.Close();
+                }
 
                 //Checks if username was stored in datatable and returns accordingly
-                if (usernamePull.Rows.Count > 0)
+                if (usernameFromDB != null)
                 {
                     updateACToolStripMessage("Username already exists! Try logging in instead.");
                     return true;
@@ -185,7 +196,6 @@ namespace CIS_560_Project_Team_16.Controllers
         /// <returns>True if passwords match, false otherwise</returns>
         public bool ComparePasswords_AC(string username, string proposedPassword, string confirmationPassword)
         {
-            
             if (proposedPassword == "" || confirmationPassword == "")
             {
                 updateACToolStripMessage("Password cannot be blank. Try again.");
@@ -199,7 +209,7 @@ namespace CIS_560_Project_Team_16.Controllers
             else
             {
                 //Temporary message, will store account info to DB then transfer to Login Page
-                updateACToolStripMessage("Passwords match! Account created!");
+                updateACToolStripMessage("Account created! Return to login page to access your account!");
                 StoreNewCredentials(username, proposedPassword);
                 return true;
             }

@@ -24,9 +24,9 @@ namespace CIS_560_Project_Team_16.Models
         public string Username { get; set; }
 
         /// <summary>
-        /// A public access point for the users anticipated movies in List<> format
+        /// A public access point for the users watchlistID in string format
         /// </summary>
-        public string WatchListID { get; set; }
+        public int WatchListID { get; set; }
 
         /// <summary>
         /// The UserModel constructor, instantiates the users username, favorites, and watchlist
@@ -34,9 +34,9 @@ namespace CIS_560_Project_Team_16.Models
         /// <param name="usernameIn">The users associated username</param>
         /// <param name="accountIDin">The accounts ID</param>
         /// <param name="watchlistIDin">The watchlistID associated with the user</param>
-        public UserModel(string accountIDin, string usernameIn, string watchlistIDin) 
+        public UserModel(int accountIDin, string usernameIn, int watchlistIDin) 
         {
-            AccountID = Convert.ToInt32(accountIDin);
+            AccountID = accountIDin;
             Username = usernameIn;
             WatchListID = watchlistIDin;
         }

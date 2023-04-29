@@ -1,6 +1,6 @@
 ﻿namespace CIS_560_Project_Team_16
 {
-    partial class MainWindow
+    partial class uxMainWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             uxWatchListButton = new Button();
             uxMWSignOutButton = new Button();
-            dataGridView1 = new DataGridView();
+            uxMoviesDataGridView = new DataGridView();
             uxFavoritesButton = new Button();
             uxMostViewedButton = new Button();
             uxHighestRatedButton = new Button();
@@ -39,13 +39,13 @@
             uxSearchTextBox = new TextBox();
             uxSearchButton = new Button();
             uxGenreComboBox = new ComboBox();
-            label1 = new Label();
+            uxTitleLabel = new Label();
             uxActorsButton = new Button();
             uxDirectorsButton = new Button();
             uxMoviesButton = new Button();
             uxSignedInAsLabel = new Label();
             uxCurrentUserLabel = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)uxMoviesDataGridView).BeginInit();
             SuspendLayout();
             // 
             // uxWatchListButton
@@ -69,16 +69,16 @@
             uxMWSignOutButton.UseVisualStyleBackColor = true;
             uxMWSignOutButton.Click += uxMWSignOut_Click;
             // 
-            // dataGridView1
+            // uxMoviesDataGridView
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(17, 128);
-            dataGridView1.Margin = new Padding(4, 5, 4, 5);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(1001, 653);
-            dataGridView1.TabIndex = 4;
+            uxMoviesDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            uxMoviesDataGridView.Location = new Point(17, 128);
+            uxMoviesDataGridView.Margin = new Padding(4, 5, 4, 5);
+            uxMoviesDataGridView.Name = "uxMoviesDataGridView";
+            uxMoviesDataGridView.RowHeadersWidth = 62;
+            uxMoviesDataGridView.RowTemplate.Height = 25;
+            uxMoviesDataGridView.Size = new Size(1001, 653);
+            uxMoviesDataGridView.TabIndex = 4;
             // 
             // uxFavoritesButton
             // 
@@ -161,16 +161,16 @@
             uxGenreComboBox.TabIndex = 15;
             uxGenreComboBox.Text = "Genres";
             // 
-            // label1
+            // uxTitleLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Franklin Gothic Heavy", 36F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(17, 27);
-            label1.Margin = new Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(584, 91);
-            label1.TabIndex = 21;
-            label1.Text = "Movie Database";
+            uxTitleLabel.AutoSize = true;
+            uxTitleLabel.Font = new Font("Franklin Gothic Heavy", 36F, FontStyle.Regular, GraphicsUnit.Point);
+            uxTitleLabel.Location = new Point(17, 27);
+            uxTitleLabel.Margin = new Padding(4, 0, 4, 0);
+            uxTitleLabel.Name = "uxTitleLabel";
+            uxTitleLabel.Size = new Size(584, 91);
+            uxTitleLabel.TabIndex = 21;
+            uxTitleLabel.Text = "Movie Database";
             // 
             // uxActorsButton
             // 
@@ -214,13 +214,13 @@
             // uxCurrentUserLabel
             // 
             uxCurrentUserLabel.AutoSize = true;
-            uxCurrentUserLabel.Location = new Point(730, 85);
+            uxCurrentUserLabel.Location = new Point(720, 85);
             uxCurrentUserLabel.Name = "uxCurrentUserLabel";
             uxCurrentUserLabel.Size = new Size(123, 25);
             uxCurrentUserLabel.TabIndex = 26;
             uxCurrentUserLabel.Text = "usernamehere";
             // 
-            // MainWindow
+            // uxMainWindow
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -230,7 +230,7 @@
             Controls.Add(uxMoviesButton);
             Controls.Add(uxDirectorsButton);
             Controls.Add(uxActorsButton);
-            Controls.Add(label1);
+            Controls.Add(uxTitleLabel);
             Controls.Add(uxGenreComboBox);
             Controls.Add(uxSearchButton);
             Controls.Add(uxSearchTextBox);
@@ -239,15 +239,16 @@
             Controls.Add(uxHighestRatedButton);
             Controls.Add(uxMostViewedButton);
             Controls.Add(uxFavoritesButton);
-            Controls.Add(dataGridView1);
+            Controls.Add(uxMoviesDataGridView);
             Controls.Add(uxMWSignOutButton);
             Controls.Add(uxWatchListButton);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(4, 5, 4, 5);
-            Name = "MainWindow";
+            Name = "uxMainWindow";
             Text = "Movie Database";
             FormClosed += MainWindow_FormClosed;
             Load += MainWindow_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)uxMoviesDataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -256,7 +257,7 @@
 
         private Button uxWatchListButton;
         private Button uxMWSignOutButton;
-        private DataGridView dataGridView1;
+        private DataGridView uxMoviesDataGridView;
         private Button uxFavoritesButton;
         private Button uxMostViewedButton;
         private Button uxHighestRatedButton;
@@ -265,7 +266,7 @@
         private TextBox uxSearchTextBox;
         private Button uxSearchButton;
         private ComboBox uxGenreComboBox;
-        private Label label1;
+        private Label uxTitleLabel;
         private Button uxActorsButton;
         private Button uxDirectorsButton;
         private Button uxMoviesButton;

@@ -13,14 +13,14 @@ using System.Windows.Forms;
 
 namespace CIS_560_Project_Team_16
 {
-    public partial class MainWindow : Form
+    public partial class uxMainWindow : Form
     {
         /// <summary>
         /// Deligate towards controller that notifies it to log out the current user
         /// </summary>
         SignOutUserDEL signOut;
 
-        public MainWindow(SignOutUserDEL signOutDeligate)
+        public uxMainWindow(SignOutUserDEL signOutDeligate)
         {
             InitializeComponent();
             signOut = signOutDeligate;
@@ -49,7 +49,11 @@ namespace CIS_560_Project_Team_16
         }
 
 
-        //-----------Likely want to do something here, not sure what though----------------
+        /// <summary>
+        /// Closes the MainWindow, thus closing the application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainWindow_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -84,8 +88,8 @@ namespace CIS_560_Project_Team_16
             var commandBuilder = new SqlCommandBuilder(dataAdapter);
             var ds = new DataSet();
             dataAdapter.Fill(ds);
-            dataGridView1.ReadOnly = true;
-            dataGridView1.DataSource = ds.Tables[0];
+            uxMoviesDataGridView.ReadOnly = true;
+            uxMoviesDataGridView.DataSource = ds.Tables[0];
 
 
             /*string connectionString = "Data Source=(localdb)\\MSSQLLocalDb;Initial Catalog=CIS560Project;Integrated Security=True";
