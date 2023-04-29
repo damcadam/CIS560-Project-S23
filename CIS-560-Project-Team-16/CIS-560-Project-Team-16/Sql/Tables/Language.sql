@@ -5,7 +5,7 @@ IF OBJECT_ID(N'MovieDatabase.Language') IS NULL
 BEGIN
 	CREATE TABLE MovieDatabase.[Language]
 	(
-		contentId int IDENTITY(1,1) PRIMARY KEY,
+		languageId int IDENTITY(1,1) PRIMARY KEY,
 		[language] NVARCHAR(128)
 	);
 END;
