@@ -76,7 +76,7 @@ namespace CIS_560_Project_Team_16.Controllers
             clearALToolStripMessage();
 
             //Query to pulls the specified username and password combo, if possible
-            string loginQuery = "SELECT * FROM LoginCredentials WHERE username = '" + username + "' AND password = '" + user_password + "'";
+            string loginQuery = "SELECT * FROM MovieDatabase.Account WHERE username = '" + username + "' AND password = '" + user_password + "'";
 
             //Adapts the information retrieved into a format that can be stored in a few different ways
             //here in C#
@@ -89,7 +89,7 @@ namespace CIS_560_Project_Team_16.Controllers
             if (dtLogin.Rows.Count > 0)
             {
                 //-----Temporary message to show the credentials matched-----
-                updateALToolStripMessage("Credentials validated!");
+                //updateALToolStripMessage("Credentials validated!");
                 return true;
             }
             else
@@ -112,7 +112,7 @@ namespace CIS_560_Project_Team_16.Controllers
             clearALToolStripMessage();
 
             //Query to check only for the given username
-            string usernameCheckQuery = "SELECT * FROM LoginCredentials WHERE username = '" + username + "'";
+            string usernameCheckQuery = "SELECT * FROM MovieDatabase.Account WHERE username = '" + username + "'";
 
             try
             {
@@ -179,7 +179,7 @@ namespace CIS_560_Project_Team_16.Controllers
         /// <param name="password">The new password</param>
         private void StoreNewCredentials(string username, string password)
         {
-            string query = "INSERT INTO LoginCredentials VALUES ('" + username+"','"+password+"')";
+            string query = "INSERT INTO MovieDatabase.Account VALUES ('"+username+"','"+password+"')";
 
             loginDBconnection.Open();
             SqlCommand cmd = new SqlCommand(query, loginDBconnection);
