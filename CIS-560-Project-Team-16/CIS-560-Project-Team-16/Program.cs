@@ -58,7 +58,7 @@ namespace CIS_560_Project_Team_16
             controller.RegisterShowMainWindowDel(mainWindow.ShowMainWindow);
 
             // Run the application
-            Application.Run(logInWindow);
+            Application.Run(mainWindow);
         }
 
         /// <summary>

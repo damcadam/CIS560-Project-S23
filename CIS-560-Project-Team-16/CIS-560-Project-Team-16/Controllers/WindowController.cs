@@ -57,7 +57,7 @@ namespace CIS_560_Project_Team_16.Controllers
         UserModel user;
 
         //Stores the information needed to establish DB connection
-        SqlConnection loginDBconnection = new SqlConnection(@"Data Source=(localDB)\MSSQLLocalDB;Initial Catalog=CIS560Project;Integrated Security=True");
+        SqlConnection loginDBconnection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDb;Initial Catalog=CIS560Project;Integrated Security=True");
 
         public WindowController()
         {
