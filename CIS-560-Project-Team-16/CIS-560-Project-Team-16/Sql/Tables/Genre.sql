@@ -1,5 +1,5 @@
 ﻿--(localdb)\MSSQLLocalDb
---DROP TABLE MovieDatabase.Genre;
+DROP TABLE MovieDatabase.Genre;
 
 CREATE TABLE MovieDatabase.Genre
 (

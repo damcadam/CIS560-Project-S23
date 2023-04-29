@@ -14,6 +14,6 @@ END;
 SELECT *
 FROM MovieDatabase.Account
 
--- bcp CIS560Project.MovieDatabase.Account in "C:\Users\Isaiah\source\repos\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\Sql\Data\AccountData.tsv" -S "(localdb)\MSSQLLocalDb" -T -f AccountFormat.fmt -h "CHECK_CONSTRAINTS"
+--bcp CIS560Project.MovieDatabase.Account in "C:\Users\Isaiah\source\repos\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\Sql\Data\AccountData.tsv" -S "(localdb)\MSSQLLocalDb" -T -f AccountFormat.fmt -h "CHECK_CONSTRAINTS"
 
 
