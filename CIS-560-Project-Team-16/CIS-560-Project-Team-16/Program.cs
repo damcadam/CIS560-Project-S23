@@ -60,8 +60,6 @@ namespace CIS_560_Project_Team_16
             // Run the application
             Application.Run(logInWindow);
         }
-<<<<<<< HEAD
-=======
 
         /// <summary>
         /// Method for bulk copying movie data from the IMDb TSVs. This needs to get called after
@@ -163,6 +161,5 @@ namespace CIS_560_Project_Team_16
             // Close the connection
             connection.Close();
         }
->>>>>>> 8415ff54c943543192ef816fc5b05fda8d05677a
     }
 }
