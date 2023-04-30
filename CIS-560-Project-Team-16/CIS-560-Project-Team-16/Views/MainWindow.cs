@@ -61,7 +61,7 @@ namespace CIS_560_Project_Team_16
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
-            string connectionString = "Data Source=(localdb)\\MSSQLLocalDb;Initial Catalog=CIS560Project;Integrated Security=True";
+            string connectionString = "Data Source=(localDB)\\MSSQLLocalDB;Initial Catalog=CIS560Project;Integrated Security=True";
             /*            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM MovieDatabase.Directors", "Data Source=(localdb)\\MSSQLLocalDb;Initial Catalog=CIS560Project;Integrated Security=True");
                         DataSet ds = new DataSet();
                         da.Fill(ds, "Directors");
@@ -82,7 +82,7 @@ namespace CIS_560_Project_Team_16
                         }*/
 
             var select = "SELECT * FROM MovieDatabase.Directors";
-            var c = new SqlConnection(connectionString); // Your Connection String here
+            var c = new SqlConnection(connectionString);
             var dataAdapter = new SqlDataAdapter(select, c);
 
             var commandBuilder = new SqlCommandBuilder(dataAdapter);

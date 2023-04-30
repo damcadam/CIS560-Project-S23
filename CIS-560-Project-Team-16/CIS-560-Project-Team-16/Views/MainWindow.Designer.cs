@@ -31,7 +31,6 @@
             uxWatchListButton = new Button();
             uxMWSignOutButton = new Button();
             uxMoviesDataGridView = new DataGridView();
-            uxFavoritesButton = new Button();
             uxMostViewedButton = new Button();
             uxHighestRatedButton = new Button();
             uxEditButton = new Button();
@@ -45,6 +44,9 @@
             uxMoviesButton = new Button();
             uxSignedInAsLabel = new Label();
             uxCurrentUserLabel = new Label();
+            uxSearchLabel = new Label();
+            uxModifyLabel = new Label();
+            uxLookUpLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)uxMoviesDataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -80,19 +82,9 @@
             uxMoviesDataGridView.Size = new Size(1001, 653);
             uxMoviesDataGridView.TabIndex = 4;
             // 
-            // uxFavoritesButton
-            // 
-            uxFavoritesButton.Location = new Point(1243, 240);
-            uxFavoritesButton.Margin = new Padding(4, 5, 4, 5);
-            uxFavoritesButton.Name = "uxFavoritesButton";
-            uxFavoritesButton.Size = new Size(187, 102);
-            uxFavoritesButton.TabIndex = 5;
-            uxFavoritesButton.Text = "Favorites";
-            uxFavoritesButton.UseVisualStyleBackColor = true;
-            // 
             // uxMostViewedButton
             // 
-            uxMostViewedButton.Location = new Point(1243, 352);
+            uxMostViewedButton.Location = new Point(1243, 240);
             uxMostViewedButton.Margin = new Padding(4, 5, 4, 5);
             uxMostViewedButton.Name = "uxMostViewedButton";
             uxMostViewedButton.Size = new Size(187, 102);
@@ -102,7 +94,7 @@
             // 
             // uxHighestRatedButton
             // 
-            uxHighestRatedButton.Location = new Point(1243, 463);
+            uxHighestRatedButton.Location = new Point(1243, 352);
             uxHighestRatedButton.Margin = new Padding(4, 5, 4, 5);
             uxHighestRatedButton.Name = "uxHighestRatedButton";
             uxHighestRatedButton.Size = new Size(187, 102);
@@ -112,7 +104,7 @@
             // 
             // uxEditButton
             // 
-            uxEditButton.Location = new Point(1027, 575);
+            uxEditButton.Location = new Point(1243, 516);
             uxEditButton.Margin = new Padding(4, 5, 4, 5);
             uxEditButton.Name = "uxEditButton";
             uxEditButton.Size = new Size(187, 102);
@@ -122,7 +114,7 @@
             // 
             // uxAddButton
             // 
-            uxAddButton.Location = new Point(1027, 463);
+            uxAddButton.Location = new Point(1027, 516);
             uxAddButton.Margin = new Padding(4, 5, 4, 5);
             uxAddButton.Name = "uxAddButton";
             uxAddButton.Size = new Size(187, 102);
@@ -137,7 +129,7 @@
             uxSearchTextBox.Margin = new Padding(4, 5, 4, 5);
             uxSearchTextBox.Name = "uxSearchTextBox";
             uxSearchTextBox.PlaceholderText = "Enter Title Here";
-            uxSearchTextBox.Size = new Size(186, 31);
+            uxSearchTextBox.Size = new Size(208, 31);
             uxSearchTextBox.TabIndex = 13;
             // 
             // uxSearchButton
@@ -154,10 +146,10 @@
             // 
             uxGenreComboBox.FormattingEnabled = true;
             uxGenreComboBox.Items.AddRange(new object[] { "Documentary", "Short", "Sport", "Comedy", "Horror", "Drama", "News", "Fantasy", "History", "Romance", "Adventure", "Crime", "Action", "Western", "Biography", "War", "Thriller", "Sci-Fi", "Family", "Animation", "Mystery", "Music", "Musical", "Film-Noir", "Talk-Show", "Game-Show", "Adult", "Reality-TV", "None" });
-            uxGenreComboBox.Location = new Point(1027, 700);
+            uxGenreComboBox.Location = new Point(1027, 683);
             uxGenreComboBox.Margin = new Padding(4, 5, 4, 5);
             uxGenreComboBox.Name = "uxGenreComboBox";
-            uxGenreComboBox.Size = new Size(186, 33);
+            uxGenreComboBox.Size = new Size(208, 33);
             uxGenreComboBox.TabIndex = 15;
             uxGenreComboBox.Text = "Genres";
             // 
@@ -220,11 +212,41 @@
             uxCurrentUserLabel.TabIndex = 26;
             uxCurrentUserLabel.Text = "usernamehere";
             // 
+            // uxSearchLabel
+            // 
+            uxSearchLabel.AutoSize = true;
+            uxSearchLabel.Location = new Point(1026, 650);
+            uxSearchLabel.Name = "uxSearchLabel";
+            uxSearchLabel.Size = new Size(68, 25);
+            uxSearchLabel.TabIndex = 27;
+            uxSearchLabel.Text = "Search:";
+            // 
+            // uxModifyLabel
+            // 
+            uxModifyLabel.AutoSize = true;
+            uxModifyLabel.Location = new Point(1026, 488);
+            uxModifyLabel.Name = "uxModifyLabel";
+            uxModifyLabel.Size = new Size(73, 25);
+            uxModifyLabel.TabIndex = 28;
+            uxModifyLabel.Text = "Modify:";
+            // 
+            // uxLookUpLabel
+            // 
+            uxLookUpLabel.AutoSize = true;
+            uxLookUpLabel.Location = new Point(1027, 97);
+            uxLookUpLabel.Name = "uxLookUpLabel";
+            uxLookUpLabel.Size = new Size(83, 25);
+            uxLookUpLabel.TabIndex = 29;
+            uxLookUpLabel.Text = "Look Up:";
+            // 
             // uxMainWindow
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1447, 796);
+            ClientSize = new Size(1441, 796);
+            Controls.Add(uxLookUpLabel);
+            Controls.Add(uxModifyLabel);
+            Controls.Add(uxSearchLabel);
             Controls.Add(uxCurrentUserLabel);
             Controls.Add(uxSignedInAsLabel);
             Controls.Add(uxMoviesButton);
@@ -238,7 +260,6 @@
             Controls.Add(uxEditButton);
             Controls.Add(uxHighestRatedButton);
             Controls.Add(uxMostViewedButton);
-            Controls.Add(uxFavoritesButton);
             Controls.Add(uxMoviesDataGridView);
             Controls.Add(uxMWSignOutButton);
             Controls.Add(uxWatchListButton);
@@ -258,7 +279,6 @@
         private Button uxWatchListButton;
         private Button uxMWSignOutButton;
         private DataGridView uxMoviesDataGridView;
-        private Button uxFavoritesButton;
         private Button uxMostViewedButton;
         private Button uxHighestRatedButton;
         private Button uxEditButton;
@@ -272,5 +292,8 @@
         private Button uxMoviesButton;
         private Label uxSignedInAsLabel;
         private Label uxCurrentUserLabel;
+        private Label uxSearchLabel;
+        private Label uxModifyLabel;
+        private Label uxLookUpLabel;
     }
 }
