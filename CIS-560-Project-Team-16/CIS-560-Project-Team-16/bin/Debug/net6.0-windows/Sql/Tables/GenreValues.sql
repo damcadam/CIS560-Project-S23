@@ -14,3 +14,4 @@ SELECT *
 FROM MovieDatabase.GenreValues
 
 -- bcp CIS560Project.MovieDatabase.GenreValues in "C:\Users\Isaiah\source\repos\CIS560-Project-S23\CIS-560-Project-Team-16\CIS-560-Project-Team-16\Sql\Data\StaticGenres.tsv" -S "(localdb)\MSSQLLocalDb" -T -f StaticGenresFormat.fmt -h "CHECK_CONSTRAINTS"
+

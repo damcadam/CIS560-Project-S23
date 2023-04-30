@@ -59,10 +59,12 @@ namespace CIS_560_Project_Team_16
             controller.RegisterShowALWindowDel(logInWindow.ShowALWindow);
             controller.RegisterShowMainWindowDel(mainWindow.ShowMainWindow);
 
-            BulkCopyData();
+            // Create tables then BCP TSV data into them
+            //RebuildDatabase() <-- UNCOMMMENT ME once tables are complete
+            //BulkCopyData();
 
             // Run the application
-            Application.Run(logInWindow);
+            Application.Run(accCreateWindow);
         }
 
         /// <summary>

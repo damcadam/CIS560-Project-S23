@@ -28,142 +28,132 @@
         /// </summary>
         private void InitializeComponent()
         {
-            uxALSignIn = new Button();
-            uxToCreateAccount = new Button();
-            uxALUsernameTextBox = new TextBox();
-            uxALUsernameLabel = new Label();
-            uxALPasswordLabel = new Label();
-            uxALPasswordTextBox = new TextBox();
-            uxALStatusStrip = new StatusStrip();
-            uxALToolStripLabel = new ToolStripStatusLabel();
-            label1 = new Label();
-            uxALShowPasswordCheckBox = new CheckBox();
-            uxALStatusStrip.SuspendLayout();
-            SuspendLayout();
+            this.uxALSignIn = new System.Windows.Forms.Button();
+            this.uxToCreateAccount = new System.Windows.Forms.Button();
+            this.uxALUsernameTextBox = new System.Windows.Forms.TextBox();
+            this.uxALUsernameLabel = new System.Windows.Forms.Label();
+            this.uxALPasswordLabel = new System.Windows.Forms.Label();
+            this.uxALPasswordTextBox = new System.Windows.Forms.TextBox();
+            this.uxALStatusStrip = new System.Windows.Forms.StatusStrip();
+            this.uxALToolStripLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.uxALShowPasswordCheckBox = new System.Windows.Forms.CheckBox();
+            this.uxALStatusStrip.SuspendLayout();
+            this.SuspendLayout();
             // 
             // uxALSignIn
             // 
-            uxALSignIn.Location = new Point(421, 163);
-            uxALSignIn.Margin = new Padding(4, 5, 4, 5);
-            uxALSignIn.Name = "uxALSignIn";
-            uxALSignIn.Size = new Size(143, 42);
-            uxALSignIn.TabIndex = 0;
-            uxALSignIn.Text = "Sign In";
-            uxALSignIn.UseVisualStyleBackColor = true;
-            uxALSignIn.Click += uxSignIn_Click;
+            this.uxALSignIn.Location = new System.Drawing.Point(295, 98);
+            this.uxALSignIn.Name = "uxALSignIn";
+            this.uxALSignIn.Size = new System.Drawing.Size(100, 25);
+            this.uxALSignIn.TabIndex = 0;
+            this.uxALSignIn.Text = "Sign In";
+            this.uxALSignIn.UseVisualStyleBackColor = true;
             // 
             // uxToCreateAccount
             // 
-            uxToCreateAccount.Location = new Point(423, 292);
-            uxToCreateAccount.Margin = new Padding(4, 5, 4, 5);
-            uxToCreateAccount.Name = "uxToCreateAccount";
-            uxToCreateAccount.Size = new Size(171, 42);
-            uxToCreateAccount.TabIndex = 1;
-            uxToCreateAccount.Text = "Create Account";
-            uxToCreateAccount.UseVisualStyleBackColor = true;
-            uxToCreateAccount.Click += uxToCreateAccount_Click;
+            this.uxToCreateAccount.Location = new System.Drawing.Point(296, 175);
+            this.uxToCreateAccount.Name = "uxToCreateAccount";
+            this.uxToCreateAccount.Size = new System.Drawing.Size(120, 25);
+            this.uxToCreateAccount.TabIndex = 1;
+            this.uxToCreateAccount.Text = "Create Account";
+            this.uxToCreateAccount.UseVisualStyleBackColor = true;
             // 
             // uxALUsernameTextBox
             // 
-            uxALUsernameTextBox.Location = new Point(164, 32);
-            uxALUsernameTextBox.Margin = new Padding(4, 5, 4, 5);
-            uxALUsernameTextBox.Name = "uxALUsernameTextBox";
-            uxALUsernameTextBox.Size = new Size(400, 31);
-            uxALUsernameTextBox.TabIndex = 2;
+            this.uxALUsernameTextBox.Location = new System.Drawing.Point(115, 19);
+            this.uxALUsernameTextBox.Name = "uxALUsernameTextBox";
+            this.uxALUsernameTextBox.Size = new System.Drawing.Size(281, 23);
+            this.uxALUsernameTextBox.TabIndex = 2;
             // 
             // uxALUsernameLabel
             // 
-            uxALUsernameLabel.AutoSize = true;
-            uxALUsernameLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            uxALUsernameLabel.Location = new Point(9, 23);
-            uxALUsernameLabel.Margin = new Padding(4, 0, 4, 0);
-            uxALUsernameLabel.Name = "uxALUsernameLabel";
-            uxALUsernameLabel.Size = new Size(151, 40);
-            uxALUsernameLabel.TabIndex = 3;
-            uxALUsernameLabel.Text = "Username:";
+            this.uxALUsernameLabel.AutoSize = true;
+            this.uxALUsernameLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.uxALUsernameLabel.Location = new System.Drawing.Point(6, 14);
+            this.uxALUsernameLabel.Name = "uxALUsernameLabel";
+            this.uxALUsernameLabel.Size = new System.Drawing.Size(101, 25);
+            this.uxALUsernameLabel.TabIndex = 3;
+            this.uxALUsernameLabel.Text = "Username:";
             // 
             // uxALPasswordLabel
             // 
-            uxALPasswordLabel.AutoSize = true;
-            uxALPasswordLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            uxALPasswordLabel.Location = new Point(17, 103);
-            uxALPasswordLabel.Margin = new Padding(4, 0, 4, 0);
-            uxALPasswordLabel.Name = "uxALPasswordLabel";
-            uxALPasswordLabel.Size = new Size(142, 40);
-            uxALPasswordLabel.TabIndex = 4;
-            uxALPasswordLabel.Text = "Password:";
+            this.uxALPasswordLabel.AutoSize = true;
+            this.uxALPasswordLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.uxALPasswordLabel.Location = new System.Drawing.Point(12, 62);
+            this.uxALPasswordLabel.Name = "uxALPasswordLabel";
+            this.uxALPasswordLabel.Size = new System.Drawing.Size(95, 25);
+            this.uxALPasswordLabel.TabIndex = 4;
+            this.uxALPasswordLabel.Text = "Password:";
             // 
             // uxALPasswordTextBox
             // 
-            uxALPasswordTextBox.Location = new Point(164, 103);
-            uxALPasswordTextBox.Margin = new Padding(4, 5, 4, 5);
-            uxALPasswordTextBox.Name = "uxALPasswordTextBox";
-            uxALPasswordTextBox.Size = new Size(400, 31);
-            uxALPasswordTextBox.TabIndex = 5;
+            this.uxALPasswordTextBox.Location = new System.Drawing.Point(115, 62);
+            this.uxALPasswordTextBox.Name = "uxALPasswordTextBox";
+            this.uxALPasswordTextBox.Size = new System.Drawing.Size(281, 23);
+            this.uxALPasswordTextBox.TabIndex = 5;
             // 
             // uxALStatusStrip
             // 
-            uxALStatusStrip.ImageScalingSize = new Size(24, 24);
-            uxALStatusStrip.Items.AddRange(new ToolStripItem[] { uxALToolStripLabel });
-            uxALStatusStrip.Location = new Point(0, 363);
-            uxALStatusStrip.Name = "uxALStatusStrip";
-            uxALStatusStrip.Padding = new Padding(1, 0, 20, 0);
-            uxALStatusStrip.Size = new Size(611, 22);
-            uxALStatusStrip.TabIndex = 6;
-            uxALStatusStrip.Text = "statusStrip1";
+            this.uxALStatusStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.uxALStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.uxALToolStripLabel});
+            this.uxALStatusStrip.Location = new System.Drawing.Point(0, 209);
+            this.uxALStatusStrip.Name = "uxALStatusStrip";
+            this.uxALStatusStrip.Size = new System.Drawing.Size(428, 22);
+            this.uxALStatusStrip.TabIndex = 6;
+            this.uxALStatusStrip.Text = "statusStrip1";
             // 
             // uxALToolStripLabel
             // 
-            uxALToolStripLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            uxALToolStripLabel.Name = "uxALToolStripLabel";
-            uxALToolStripLabel.Size = new Size(0, 15);
+            this.uxALToolStripLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.uxALToolStripLabel.Name = "uxALToolStripLabel";
+            this.uxALToolStripLabel.Size = new System.Drawing.Size(0, 17);
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(181, 300);
-            label1.Margin = new Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(237, 30);
-            label1.TabIndex = 7;
-            label1.Text = "Don't have an account?";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(127, 180);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(163, 20);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Don\'t have an account?";
             // 
             // uxALShowPasswordCheckBox
             // 
-            uxALShowPasswordCheckBox.AutoSize = true;
-            uxALShowPasswordCheckBox.Location = new Point(17, 163);
-            uxALShowPasswordCheckBox.Name = "uxALShowPasswordCheckBox";
-            uxALShowPasswordCheckBox.Size = new Size(162, 29);
-            uxALShowPasswordCheckBox.TabIndex = 8;
-            uxALShowPasswordCheckBox.Text = "Show Password";
-            uxALShowPasswordCheckBox.UseVisualStyleBackColor = true;
-            uxALShowPasswordCheckBox.CheckedChanged += uxShowPasswordCheckBox_CheckedChanged;
+            this.uxALShowPasswordCheckBox.AutoSize = true;
+            this.uxALShowPasswordCheckBox.Location = new System.Drawing.Point(12, 98);
+            this.uxALShowPasswordCheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxALShowPasswordCheckBox.Name = "uxALShowPasswordCheckBox";
+            this.uxALShowPasswordCheckBox.Size = new System.Drawing.Size(108, 19);
+            this.uxALShowPasswordCheckBox.TabIndex = 8;
+            this.uxALShowPasswordCheckBox.Text = "Show Password";
+            this.uxALShowPasswordCheckBox.UseVisualStyleBackColor = true;
             // 
             // AccountLogin
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(611, 385);
-            Controls.Add(uxALShowPasswordCheckBox);
-            Controls.Add(label1);
-            Controls.Add(uxALStatusStrip);
-            Controls.Add(uxALPasswordTextBox);
-            Controls.Add(uxALPasswordLabel);
-            Controls.Add(uxALUsernameLabel);
-            Controls.Add(uxALUsernameTextBox);
-            Controls.Add(uxToCreateAccount);
-            Controls.Add(uxALSignIn);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(4, 5, 4, 5);
-            MinimizeBox = false;
-            Name = "AccountLogin";
-            Text = "Account Login";
-            FormClosed += AccountLogin_FormClosed;
-            uxALStatusStrip.ResumeLayout(false);
-            uxALStatusStrip.PerformLayout();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(428, 231);
+            this.Controls.Add(this.uxALShowPasswordCheckBox);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.uxALStatusStrip);
+            this.Controls.Add(this.uxALPasswordTextBox);
+            this.Controls.Add(this.uxALPasswordLabel);
+            this.Controls.Add(this.uxALUsernameLabel);
+            this.Controls.Add(this.uxALUsernameTextBox);
+            this.Controls.Add(this.uxToCreateAccount);
+            this.Controls.Add(this.uxALSignIn);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimizeBox = false;
+            this.Name = "AccountLogin";
+            this.Text = "Account Login";
+            this.uxALStatusStrip.ResumeLayout(false);
+            this.uxALStatusStrip.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

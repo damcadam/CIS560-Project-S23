@@ -1,13 +1,14 @@
 ﻿--(localdb)\MSSQLLocalDb
+
 DROP TABLE MovieDatabase.[Language];
 
 IF OBJECT_ID(N'MovieDatabase.Language') IS NULL
 BEGIN
-	CREATE TABLE MovieDatabase.[Language]
-	(
-		contentId int IDENTITY(1,1) PRIMARY KEY,
-		[language] NVARCHAR(128)
-	);
+    CREATE TABLE MovieDatabase.[Language]
+    (
+        languageId int IDENTITY(1,1) PRIMARY KEY,
+        [language] NVARCHAR(128)
+    );
 END;
 
 SELECT *
